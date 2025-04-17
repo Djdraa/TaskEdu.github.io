@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha Técnica y Requisitos del Sistema</title>
+    <link rel="stylesheet" href="css/ftecnica.css">
+</head>
+<body>
+    <header>
+        <h1>Ficha Técnica y Requisitos del Sistema</h1>
+    </header>
+    
+    <section>
+        <h2>Datos Técnicos Generales</h2>
+        <table border="1">
+            <tr>
+                <th>Ítem</th>
+                <th>Descripción</th>
+            </tr>
+            <tr>
+                <td>Nombre del Sistema</td>
+                <td>Sistema de Gestión de Tareas Académicas</td>
+            </tr>
+            <tr>
+                <td>Versión</td>
+                <td>1.0</td>
+            </tr>
+            <tr>
+                <td>Plataforma</td>
+                <td>Web</td>
+            </tr>
+            <tr>
+                <td>Lenguaje de Programación</td>
+                <td>JavaScript (React), Node.js</td>
+            </tr>
+            <tr>
+                <td>Base de Datos</td>
+                <td>MongoDB / PostgreSQL (dependiendo de elección final)</td>
+            </tr>
+            <tr>
+                <td>Servidor</td>
+                <td>AWS / Render / Heroku (a definir)</td>
+            </tr>
+            <tr>
+                <td>Navegadores Soportados</td>
+                <td>Chrome, Firefox, Edge, Safari</td>
+            </tr>
+            <tr>
+                <td>Dispositivos</td>
+                <td>PC, Tablet, Smartphone</td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <h2>Requisitos Funcionales (RF)</h2>
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Nombre del Requisito</th>
+                <th>Descripción</th>
+                <th>Prioridad</th>
+                <th>Estado</th>
+            </tr>
+            <tr>
+                <td>RF-01</td>
+                <td>Registro de Usuarios</td>
+                <td>Permitir el registro de usuarios con roles específicos.</td>
+                <td>Alta</td>
+                <td>Pendiente</td>
+            </tr>
+            <tr>
+                <td>RF-02</td>
+                <td>Inicio de Sesión</td>
+                <td>Los usuarios podrán iniciar sesión con sus credenciales.</td>
+                <td>Alta</td>
+                <td>En desarrollo</td>
+            </tr>
+            <tr>
+                <td>RF-03</td>
+                <td>Gestión de Tareas</td>
+                <td>Crear, editar, eliminar y visualizar tareas.</td>
+                <td>Alta</td>
+                <td>Pendiente</td>
+            </tr>
+            <tr>
+                <td>RF-04</td>
+                <td>Asignación de Tareas</td>
+                <td>Asignar tareas según roles.</td>
+                <td>Media</td>
+                <td>Pendiente</td>
+            </tr>
+            <tr>
+                <td>RF-05</td>
+                <td>Adjuntos en Tareas</td>
+                <td>Permitir carga de archivos en las tareas.</td>
+                <td>Media</td>
+                <td>No iniciado</td>
+            </tr>
+            <tr>
+                <td>RF-06</td>
+                <td>Eliminación de Usuarios</td>
+                <td>Eliminar usuarios según cambios de equipo.</td>
+                <td>Baja</td>
+                <td>Pendiente</td>
+            </tr>
+            <tr>
+                <td>RF-07</td>
+                <td>Panel de Control</td>
+                <td>Resumen de tareas por usuario.</td>
+                <td>Alta</td>
+                <td>Pendiente</td>
+            </tr>
+            <tr>
+                <td>RF-08</td>
+                <td>Notificaciones</td>
+                <td>Alertas de tareas próximas a vencer.</td>
+                <td>Media</td>
+                <td>No iniciado</td>
+            </tr>
+            <tr>
+                <td>RF-09</td>
+                <td>Cambio de Contraseña</td>
+                <td>Función de restablecimiento de contraseña.</td>
+                <td>Alta</td>
+                <td>Pendiente</td>
+            </tr>
+            <tr>
+                <td>RF-10</td>
+                <td>Registro de Actividades</td>
+                <td>Historial de acciones realizadas.</td>
+                <td>Baja</td>
+                <td>No iniciado</td>
+            </tr>
+            <tr>
+                <td>RF-11</td>
+                <td>Reportes</td>
+                <td>Reportes semanales del estado de tareas.</td>
+                <td>Baja</td>
+                <td>No iniciado</td>
+            </tr>
+            <tr>
+                <td>RF-12</td>
+                <td>Filtro y Búsqueda de Tareas</td>
+                <td>Filtrar por fecha, prioridad, etc.</td>
+                <td>Media</td>
+                <td>Pendiente</td>
+            </tr>
+            <tr>
+                <td>RF-13</td>
+                <td>Etiquetas/Categorías de Tareas</td>
+                <td>Clasificar tareas por etiquetas.</td>
+                <td>Media</td>
+                <td>Pendiente</td>
+            </tr>
+            <tr>
+                <td>RF-14</td>
+                <td>Integración con Calendario</td>
+                <td>Sincronización con calendarios externos.</td>
+                <td>Baja</td>
+                <td>No iniciado</td>
+            </tr>
+            <tr>
+                <td>RF-15</td>
+                <td>Progreso de Tareas</td>
+                <td>Marcar avance parcial de tareas.</td>
+                <td>Media</td>
+                <td>Pendiente</td>
+            </tr>
+            <tr>
+                <td>RF-16</td>
+                <td>Modo Oscuro y Personalización</td>
+                <td>Cambiar estilos visuales.</td>
+                <td>Baja</td>
+                <td>No iniciado</td>
+            </tr>
+            <tr>
+                <td>RF-17</td>
+                <td>Autenticación en Dos Pasos</td>
+                <td>Verificación adicional de inicio de sesión.</td>
+                <td>Alta</td>
+                <td>Pendiente</td>
+            </tr>
+            <tr>
+                <td>RF-18</td>
+                <td>Cierre Automático de Sesión</td>
+                <td>Seguridad ante inactividad.</td>
+                <td>Alta</td>
+                <td>Pendiente</td>
+            </tr>
+            <tr>
+                <td>RF-19</td>
+                <td>Roles y Permisos Avanzados</td>
+                <td>Control detallado según rol.</td>
+                <td>Alta</td>
+                <td>Pendiente</td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <h2>Requisitos No Funcionales (RNF)</h2>
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Nombre del Requisito</th>
+                <th>Descripción</th>
+                <th>Prioridad</th>
+                <th>Estado</th>
+            </tr>
+            <tr>
+                <td>RNF-01</td>
+                <td>Tiempo de Respuesta</td>
+                <td>Interfaces cargan en &lt; 2s.</td>
+                <td>Alta</td>
+                <td>Pendiente</td>
+            </tr>
+            <tr>
+                <td>RNF-02</td>
+                <td>Seguridad de Datos</td>
+                <td>Encriptación y protección de accesos.</td>
+                <td>Alta</td>
+                <td>En desarrollo</td>
+            </tr>
+            <tr>
+                <td>RNF-03</td>
+                <td>Compatibilidad</td>
+                <td>Navegadores modernos y móviles.</td>
+                <td>Media</td>
+                <td>No iniciado</td>
+            </tr>
+            <tr>
+                <td>RNF-04</td>
+                <td>Disponibilidad</td>
+                <td>99.9% de disponibilidad.</td>
+                <td>Alta</td>
+                <td>Pendiente</td>
+            </tr>
+            <tr>
+                <td>RNF-05</td>
+                <td>Escalabilidad</td>
+                <td>Soporte a 10,000 usuarios.</td>
+                <td>Alta</td>
+                <td>Pendiente</td>
+            </tr>
+            <tr>
+                <td>RNF-06</td>
+                <td>Integración con la Nube</td>
+                <td>Conexión con Google Drive, etc.</td>
+                <td>Baja</td>
+                <td>No iniciado</td>
+            </tr>
+            <tr>
+                <td>RNF-07</td>
+                <td>Recuperación ante Fallos</td>
+                <td>Restauración de datos en &lt; 5 min.</td>
+                <td>Alta</td>
+                <td>Pendiente</td>
+            </tr>
+            <tr>
+                <td>RNF-08</td>
+                <td>Logs Centralizados</td>
+                <td>Registro de errores y auditoría.</td>
+                <td>Media</td>
+                <td>Pendiente</td>
+            </tr>
+            <tr>
+                <td>RNF-09</td>
+                <td>Uso eficiente de BD</td>
+                <td>Optimización de consultas.</td>
+                <td>Alta</td>
+                <td>Pendiente</td>
+            </tr>
+            <tr>
+                <td>RNF-10</td>
+                <td>Tiempo de Notificación</td>
+                <td>Notificación en &lt; 5 s tras evento.</td>
+                <td>Media</td>
+                <td>Pendiente</td>
+            </tr>
+            <tr>
+                <td>RNF-11</td>
+                <td>Backup y Restauración</td>
+                <td>Respaldos automáticos periódicos.</td>
+                <td>Alta</td>
+                <td>Pendiente</td>
+            </tr>
+            <tr>
+                <td>RNF-12</td>
+                <td>Control de Concurrencia</td>
+                <td>Evitar conflictos por edición simultánea.</td>
+                <td>Alta</td>
+                <td>Pendiente</td>
+            </tr>
+        </table>
+    </section>
+</body>
+</html>

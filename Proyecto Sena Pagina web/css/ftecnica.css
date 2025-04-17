@@ -1,0 +1,119 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 1.5rem 0;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+/* Estilo de las secciones */
+section {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 8px;
+    margin-top: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo de los títulos */
+section h2 {
+    font-size: 1.8rem;
+    color: #4CAF50;
+    margin-bottom: 1rem;
+}
+
+/* Estilos de las tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+td {
+    background-color: #f9f9f9;
+}
+
+/* Estilos de las celdas de estado */
+td:nth-child(5) {
+    text-align: center;
+}
+
+td:nth-child(5):contains("Pendiente") {
+    background-color: #ffeb3b;
+}
+
+td:nth-child(5):contains("En desarrollo") {
+    background-color: #ff9800;
+}
+
+td:nth-child(5):contains("No iniciado") {
+    background-color: #e0e0e0;
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    section h2 {
+        font-size: 1.5rem;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    th, td {
+        padding: 0.8rem;
+    }
+}
+
+/* Estilos para pantallas extra pequeñas */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.6rem;
+    }
+
+    section h2 {
+        font-size: 1.3rem;
+    }
+
+    table {
+        font-size: 0.8rem;
+    }
+
+    th, td {
+        padding: 0.6rem;
+    }
+}

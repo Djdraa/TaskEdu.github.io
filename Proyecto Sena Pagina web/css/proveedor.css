@@ -1,0 +1,203 @@
+/* Resetear márgenes y paddings para todos los elementos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales del body */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+}
+
+/* Header */
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5em;
+}
+
+/* Sección Comparativo */
+#comparativo {
+    padding: 20px;
+    margin: 20px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+#comparativo h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+table th {
+    background-color: #f1f1f1;
+    font-weight: bold;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Sección Conclusión */
+#conclusion {
+    padding: 20px;
+    margin: 20px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+#conclusion h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Sección Stack Tecnológico */
+#stack-tecnologico {
+    padding: 20px;
+    margin: 20px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+#stack-tecnologico h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#stack-tecnologico ul {
+    list-style: none;
+}
+
+#stack-tecnologico ul li {
+    margin: 10px 0;
+}
+
+/* Sección Propuesta */
+#propuesta {
+    padding: 20px;
+    margin: 20px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+#propuesta h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#propuesta h3 {
+    margin-top: 20px;
+    color: #444;
+}
+
+#propuesta ul {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+#propuesta ul li {
+    margin: 10px 0;
+}
+
+/* Estilo de las tablas dentro de propuesta */
+#propuesta table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#propuesta table th, #propuesta table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+#propuesta table th {
+    background-color: #f1f1f1;
+    font-weight: bold;
+}
+
+#propuesta table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Estilos Responsivos */
+@media screen and (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    table th, table td {
+        font-size: 14px;
+    }
+
+    #comparativo, #conclusion, #stack-tecnologico, #propuesta {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    #propuesta h2, #conclusion h2, #stack-tecnologico h2 {
+        font-size: 1.5em;
+    }
+
+    #propuesta h3, #conclusion h3, #stack-tecnologico h3 {
+        font-size: 1.2em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    table th, table td {
+        font-size: 12px;
+        padding: 10px;
+    }
+
+    #comparativo, #conclusion, #stack-tecnologico, #propuesta {
+        padding: 10px;
+        margin: 5px;
+    }
+
+    #propuesta h2, #conclusion h2, #stack-tecnologico h2 {
+        font-size: 1.2em;
+    }
+
+    footer {
+        font-size: 0.8em;
+    }
+}
