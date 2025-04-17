@@ -1,0 +1,220 @@
+/* Reset de márgenes y paddings para todo el documento */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Estilo base para el cuerpo */
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+  
+  /* Estilo general para todas las secciones */
+  section {
+    width: 100%;
+    max-width: 900px; /* Máximo ancho */
+    padding: 40px 20px;
+    margin: 40px auto;
+    text-align: center;
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  }
+  
+  /* Estilo para la sección 'Sobre Nosotros' */
+  #sobre-nosotros {
+    background-color: #ffffff;
+  }
+  
+  #sobre-nosotros h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  #sobre-nosotros p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 15px;
+  }
+  
+  #sobre-nosotros em {
+    font-style: italic;
+    color: #4CAF50;
+  }
+  
+  #sobre-nosotros img {
+    border-radius: 50%;
+    border: 5px solid #4CAF50; /* Borde verde alrededor de la imagen */
+    margin-top: 20px;
+    width: 180px; /* Tamaño ajustado */
+    height: 180px;
+    object-fit: cover; /* Mantener la proporción de la imagen */
+  }
+  
+  /* Estilo para la sección 'Qué es TaskMaster' */
+  #que-es-taskmaster {
+    background-color: #fff;
+  }
+  
+  #que-es-taskmaster h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  #que-es-taskmaster p {
+    font-size: 1.1rem;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* Estilo para la sección 'Lo que puedes hacer' */
+  #lo-que-puedes-hacer {
+    background-color: #f4f4f4;
+  }
+  
+  #lo-que-puedes-hacer h3 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  #lo-que-puedes-hacer ul {
+    list-style-type: none;
+    padding-left: 0;
+    font-size: 1.1rem;
+  }
+  
+  #lo-que-puedes-hacer ul li {
+    margin-bottom: 10px;
+  }
+  
+  /* Estilo para la sección 'Características Principales' */
+  #caracteristicas-principales {
+    background-color: #fff;
+  }
+  
+  #caracteristicas-principales h3 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 30px;
+  }
+  
+  #caracteristicas-principales h4 {
+    font-size: 1.6rem;
+    color: #4CAF50;
+    margin-bottom: 10px;
+  }
+  
+  #caracteristicas-principales p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* Medias Queries para hacer el diseño responsivo */
+  
+  /* Pantallas pequeñas (móviles) */
+  @media screen and (max-width: 600px) {
+    #sobre-nosotros h2 {
+      font-size: 2rem;
+    }
+  
+    #sobre-nosotros p {
+      font-size: 1rem;
+    }
+  
+    #que-es-taskmaster h2 {
+      font-size: 1.6rem;
+    }
+  
+    #que-es-taskmaster p {
+      font-size: 1rem;
+    }
+  
+    #lo-que-puedes-hacer h3 {
+      font-size: 1.8rem;
+    }
+  
+    #lo-que-puedes-hacer ul li {
+      font-size: 1rem;
+    }
+  
+    #caracteristicas-principales h3 {
+      font-size: 1.8rem;
+    }
+  
+    #caracteristicas-principales h4 {
+      font-size: 1.4rem;
+    }
+  
+    #caracteristicas-principales p {
+      font-size: 1rem;
+    }
+  
+    #sobre-nosotros img {
+      width: 120px; /* Imagen más pequeña en móvil */
+      height: 120px;
+    }
+  }
+  
+  /* Pantallas medianas (tabletas) */
+  @media screen and (max-width: 768px) {
+    #sobre-nosotros h2 {
+      font-size: 2.2rem;
+    }
+  
+    #que-es-taskmaster h2 {
+      font-size: 1.8rem;
+    }
+  
+    #lo-que-puedes-hacer h3 {
+      font-size: 1.9rem;
+    }
+  
+    #caracteristicas-principales h3 {
+      font-size: 2rem;
+    }
+  
+    #sobre-nosotros img {
+      width: 150px;
+      height: 150px;
+    }
+  }
+  
+  /* Pantallas grandes (escritorio) */
+  @media screen and (min-width: 1024px) {
+    #sobre-nosotros {
+      padding: 60px 40px;
+    }
+  
+    #que-es-taskmaster {
+      padding: 50px 20px;
+    }
+  
+    #lo-que-puedes-hacer {
+      padding: 50px 20px;
+    }
+  
+    #caracteristicas-principales {
+      padding: 60px 20px;
+    }
+  
+    #sobre-nosotros img {
+      width: 180px;
+      height: 180px;
+    }
+  }
+  

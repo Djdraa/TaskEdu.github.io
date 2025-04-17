@@ -1,0 +1,181 @@
+/* Reset general */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos para el body */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f7fa;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* Estilo para el título principal */
+h1 {
+  font-size: 2.5em;
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Estilo para los encabezados secundarios */
+h2 {
+  font-size: 2em;
+  color: #3498db;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 5px;
+}
+
+/* Estilo para los subtítulos */
+h3 {
+  font-size: 1.5em;
+  color: #2980b9;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Estilo para los párrafos */
+p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+/* Estilo para las listas ordenadas */
+ol {
+  font-size: 1.1em;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+/* Estilo para los elementos de la lista */
+ol li {
+  margin-bottom: 10px;
+}
+
+/* Estilo para las imágenes */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  margin-bottom: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Efecto al pasar el cursor por encima de las imágenes */
+img:hover {
+  transform: scale(1.05);
+}
+
+/* Contenedor para las imágenes de diagramas */
+.container-images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.container-images .image-wrapper {
+  text-align: center; /* Centra el título sobre la imagen */
+  position: relative;
+}
+
+.container-images .image-wrapper h3 {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 1.2em;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+}
+
+.container-images img {
+  max-width: 100%;
+  width: 300px; /* Limita el tamaño */
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.container-images img:hover {
+  transform: scale(1.05);
+}
+
+/* Estilos responsivos para pantallas más pequeñas */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.6em;
+  }
+
+  h3 {
+    font-size: 1.3em;
+  }
+
+  p {
+    font-size: 1.1em;
+  }
+
+  .container-images {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container-images .image-wrapper {
+    width: 90%;
+  }
+
+  .container-images img {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.8em;
+  }
+
+  h2 {
+    font-size: 1.4em;
+  }
+
+  h3 {
+    font-size: 1.2em;
+  }
+
+  p {
+    font-size: 1em;
+  }
+
+  .container-images .image-wrapper {
+    width: 100%;
+  }
+
+  .container-images img {
+    max-width: 100%;
+  }
+}
