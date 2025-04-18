@@ -1,0 +1,194 @@
+/* Fuente moderna y limpia */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f1f1f1;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* Sección Sobre Nosotros */
+#sobre-nosotros {
+  background-color: #fff;
+  padding: 60px 0;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  transform: translateY(20px);
+  transition: transform 0.3s ease-in-out;
+}
+
+#sobre-nosotros:hover {
+  transform: translateY(-10px);
+}
+
+#sobre-nosotros .profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+#sobre-nosotros .profile img {
+  border-radius: 50%;
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border: 6px solid #3498db;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+#sobre-nosotros .profile img:hover {
+  transform: scale(1.1);
+}
+
+#sobre-nosotros .profile .text {
+  max-width: 650px;
+}
+
+#sobre-nosotros .profile h2 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+#sobre-nosotros .profile p {
+  font-size: 1.2em;
+  margin: 10px 0;
+  color: #7f8c8d;
+}
+
+#sobre-nosotros .profile em {
+  font-style: italic;
+  color: #3498db;
+}
+
+/* Sección Qué es TaskMaster */
+#que-es-taskmaster {
+  background-color: #f9f9f9;
+  padding: 60px 0;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border-radius: 10px;
+}
+
+#que-es-taskmaster h2 {
+  font-size: 2.5em;
+  color: #3498db;
+}
+
+/* Sección Lo que puedes hacer */
+#lo-que-puedes-hacer {
+  background-color: #fff;
+  padding: 60px 0;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  margin-top: 30px;
+}
+
+#lo-que-puedes-hacer h3 {
+  font-size: 2.2em;
+  margin-bottom: 30px;
+  color: #2c3e50;
+}
+
+#lo-que-puedes-hacer ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#lo-que-puedes-hacer ul li {
+  font-size: 1.2em;
+  margin: 15px 0;
+  color: #7f8c8d;
+  position: relative;
+  padding-left: 30px;
+}
+
+#lo-que-puedes-hacer ul li::before {
+  content: '✔';
+  position: absolute;
+  left: 0;
+  color: #3498db;
+  font-size: 1.4em;
+}
+
+/* Sección Características Principales */
+#caracteristicas-principales {
+  background-color: #ecf0f1;
+  padding: 60px 0;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  margin-top: 30px;
+}
+
+#caracteristicas-principales h3 {
+  font-size: 2.5em;
+  color: #3498db;
+  margin-bottom: 30px;
+}
+
+#caracteristicas-principales article {
+  background-color: #fff;
+  margin: 30px 0;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+#caracteristicas-principales article:hover {
+  transform: scale(1.05);
+}
+
+#caracteristicas-principales article h4 {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  color: #3498db;
+}
+
+#caracteristicas-principales article p {
+  font-size: 1.2em;
+  color: #7f8c8d;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+  }
+
+  #sobre-nosotros .profile {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #sobre-nosotros .profile img {
+    width: 150px;
+    height: 150px;
+  }
+
+  #que-es-taskmaster h2, #lo-que-puedes-hacer h3, #caracteristicas-principales h3 {
+    font-size: 1.8em;
+  }
+
+  #lo-que-puedes-hacer ul li {
+    font-size: 1.1em;
+  }
+
+  #caracteristicas-principales article {
+    padding: 20px;
+  }
+}

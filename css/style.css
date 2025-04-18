@@ -1,0 +1,142 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Tipografía base */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: #f5f7fa;
+  color: #333;
+}
+
+/* Encabezado */
+header {
+  background-color: #4a90e2;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  border-bottom: 4px solid #357ab8;
+}
+
+header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* Navegación */
+nav {
+  background-color: #fff;
+  border-bottom: 2px solid #ddd;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+nav ul li {
+  margin: 0 1rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: #4a90e2;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #357ab8;
+}
+
+/* Banner */
+.banner {
+  text-align: center;
+  background-color: #e6f0fb;
+  padding: 2rem 1rem;
+}
+
+.banner img {
+  max-width: 180px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.banner p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Contenedor principal */
+.container {
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.container h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.container h3 {
+  font-size: 1.4rem;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  color: #4a90e2;
+}
+
+.container p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #444;
+}
+
+.container ul {
+  margin-left: 1.5rem;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+.container ul li {
+  margin-bottom: 0.5rem;
+}
+
+/* Botón de descarga */
+.btn-download {
+  display: inline-block;
+  background-color: #4a90e2;
+  color: white;
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-download:hover {
+  background-color: #357ab8;
+}
+
+/* Pie de página */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: #333;
+  color: #fff;
+  font-size: 0.9rem;
+  margin-top: 3rem;
+}
