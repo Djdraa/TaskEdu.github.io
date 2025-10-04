@@ -1,0 +1,187 @@
+/* Estilos generales */
+body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    /* Nuevo Fondo: Blanco roto para suavizar */
+    background-color: #f2e9e4; 
+    color: #333;
+    scroll-behavior: smooth; /* Para anclas */
+}
+
+/* --------------------------------
+    Encabezado y Títulos
+-------------------------------- */
+header {
+    /* Nuevo Color Primario: Azul-Gris Oscuro */
+    background-color: #4a4e69; 
+    color: white;
+    padding: 25px 40px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    border-bottom: 5px solid #22223b; /* Línea de acento oscuro */
+}
+
+h1 {
+    font-size: 2.2em;
+}
+
+h2 {
+    margin-top: 0;
+    text-align: center; 
+    /* Color de Títulos de Sección */
+    color: #22223b; 
+    padding-bottom: 10px;
+    border-bottom: 2px solid #c9ada7; /* Acento suave */
+}
+
+/* --------------------------------
+    Navegación Fija (Sticky Nav)
+-------------------------------- */
+nav {
+    background-color: #ffffff; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    position: sticky; /* Menú Fijo */
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0.8rem 0; 
+    margin: 0; 
+}
+
+nav ul li {
+    margin: 0 0.5rem;
+}
+
+nav a {
+    text-decoration: none;
+    /* Nuevo Color Secundario: Púrpura suave */
+    color: #9a8c98; 
+    font-weight: 600; 
+    padding: 0.5rem 0.75rem; 
+    border-radius: 4px;
+    transition: all 0.3s ease; 
+}
+
+nav a:hover,
+nav a:focus { 
+    color: white; 
+    /* Nuevo Fondo al pasar el mouse */
+    background-color: #4a4e69; 
+    outline: none; 
+}
+
+/* --------------------------------
+    Secciones y Contenedores
+-------------------------------- */
+section {
+    padding: 30px;
+    margin: 25px auto;
+    background-color: white;
+    border-radius: 10px;
+    /* Sombra más sutil y profunda */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08); 
+    max-width: 1200px;
+    border-left: 8px solid #4a4e69; /* Destaca el inicio de la sección */
+}
+
+.table-responsive {
+    overflow-x: auto;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    /* Permite el scroll con un toque más suave en dispositivos táctiles */
+    -webkit-overflow-scrolling: touch; 
+}
+
+/* --------------------------------
+    Tablas (Legibilidad y Contraste)
+-------------------------------- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px; 
+    /* Ancho mínimo necesario para los requisitos funcionales */
+    min-width: 850px; 
+    font-size: 0.9em;
+    border: 1px solid #c9ada7; /* Borde más suave */
+}
+
+table th, table td {
+    border: 1px solid #c9ada7;
+    padding: 12px 15px;
+    text-align: left;
+    vertical-align: top;
+}
+
+table th {
+    /* Fondo de Encabezado con buen contraste */
+    background-color: #e6e6ea; 
+    color: #22223b;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap; 
+}
+
+/* Zebra Stripes (Filas alternas para mejor lectura) */
+table tr:nth-child(even) {
+    background-color: #f9f9fc; 
+}
+
+/* Efecto Hover para resaltar la fila actual */
+table tr:hover {
+    background-color: #c9ada750; /* Un color semitransparente del acento */
+    transition: background-color 0.2s ease;
+}
+
+/* Columna 'Prioridad' para destacarla */
+table td:nth-child(4) { 
+    font-weight: 600;
+}
+
+/* Etiquetas de estado (Ejemplo de estilos de celda) */
+.status-alta { color: #d62828; font-weight: bold; }
+.status-media { color: #f77f00; font-weight: bold; }
+.status-baja { color: #43aa8b; font-weight: bold; }
+.status-desarrollo { color: #0077b6; }
+.status-pendiente { color: #9d4edd; }
+.status-no-iniciado { color: #777; font-style: italic; }
+
+
+/* --------------------------------
+    Media Queries (Responsividad)
+-------------------------------- */
+@media (max-width: 768px) {
+    /* Navegación vertical en pantallas pequeñas */
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 0;
+        border-bottom: 1px solid #eee;
+        text-align: center;
+    }
+    
+    nav a {
+        display: block; /* Ocupa todo el ancho del li */
+        padding: 10px;
+    }
+
+    /* Ajuste de padding en secciones */
+    section {
+        padding: 15px;
+        margin: 10px;
+    }
+
+    header {
+        padding: 20px 10px;
+    }
+}

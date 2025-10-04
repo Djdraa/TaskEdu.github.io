@@ -1,0 +1,238 @@
+/*
+=====================================================
+  Optimización y Refactorización de contexto.css
+=====================================================
+*/
+
+/* 1. RESET BÁSICO Y VARIABLES */
+:root {
+    /* Colores principales - APLICACIÓN DE LA NUEVA PALETA */
+    /* [PALETA] Secundario/Link */
+    --color-primary: #9a8c98; 
+    /* [PALETA] Primario Oscuro (Usado para hover/acento fuerte) */
+    --color-primary-dark: #4a4e69; 
+    /* [PALETA] Primario Oscuro (Fondo de Header) */
+    --color-secondary: #4a4e69; 
+    /* [PALETA] Títulos y Contraste (Súper Oscuro) */
+    --color-text-dark: #22223b; 
+    /* [PALETA] Títulos y Contraste (Súper Oscuro) */
+    --color-text-body: #22223b;
+    /* [PALETA] Fondo Principal (Claro) */
+    --color-background: #f2e9e4; 
+    /* Fondo de secciones (Mantener blanco para contraste) */
+    --color-section-bg: #fff; 
+    /* [PALETA] Acento/Línea */
+    --color-border: #c9ada7; 
+
+    /* Tipografía y Espaciado */
+    --font-family-body: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --max-width-container: 960px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family-body);
+    background-color: var(--color-background);
+    color: var(--color-text-body);
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+/* 2. ENCABEZADO Y NAVEGACIÓN */
+
+header {
+    background-color: var(--color-secondary); /* #4a4e69 */
+    color: white;
+    padding: var(--spacing-md) var(--spacing-sm);
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.2rem;
+    margin: 0;
+}
+
+/* Navegación */
+nav {
+    background-color: var(--color-section-bg);
+    border-bottom: 2px solid var(--color-border); /* #c9ada7 */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: var(--max-width-container);
+    margin: 0 auto;
+    padding: var(--spacing-sm) 0;
+}
+
+nav ul li {
+    margin: 0 var(--spacing-sm);
+    padding: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--color-primary); /* #9a8c98 */
+    font-weight: 600;
+    padding: var(--spacing-xs) 0;
+    display: block;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+nav a:hover {
+    color: var(--color-primary-dark); /* #4a4e69 */
+    border-bottom: 2px solid var(--color-primary-dark);
+}
+
+/* 3. ESTRUCTURA Y CONTENIDO PRINCIPAL */
+
+.container {
+    max-width: var(--max-width-container);
+    margin: auto;
+    padding: var(--spacing-md) var(--spacing-sm);
+}
+
+section {
+    margin-bottom: var(--spacing-md);
+    background-color: var(--color-section-bg);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s;
+}
+
+section:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+h2 {
+    color: var(--color-text-dark); /* #22223b */
+    font-size: 1.7rem;
+    /* [PALETA] Primario Oscuro para el subrayado temático */
+    border-bottom: 3px solid var(--color-primary-dark); 
+    padding-bottom: var(--spacing-xs);
+    margin-bottom: var(--spacing-sm);
+    display: inline-block;
+}
+
+p {
+    margin-bottom: var(--spacing-sm);
+    text-align: justify;
+}
+
+ul {
+    padding-left: var(--spacing-md);
+    margin-top: var(--spacing-sm);
+    list-style-type: square;
+}
+
+ul li {
+    margin-bottom: var(--spacing-xs);
+}
+
+/* Contenedor de Imagen */
+.img-container {
+    text-align: center;
+    margin-top: var(--spacing-md);
+    padding: 10px;
+}
+
+.img-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    display: block;
+    margin: 0 auto;
+}
+
+/* 4. FOOTER */
+footer {
+    background-color: var(--color-text-dark); /* #22223b */
+    color: white;
+    text-align: center;
+    padding: var(--spacing-sm) 0;
+    margin-top: var(--spacing-md);
+    font-size: 0.9rem;
+}
+
+/* 5. MEDIA QUERIES (Responsividad Optimizada) */
+@media (max-width: 768px) {
+    /* El header usa un padding más compacto */
+    header {
+        padding: 1.5rem var(--spacing-sm);
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+    
+    /* Contenedor principal con menos padding horizontal */
+    .container {
+        padding: var(--spacing-sm) var(--spacing-xs);
+    }
+
+    section {
+        padding: 20px;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    /* Navegación vertical mejorada */
+    nav ul {
+        flex-direction: column;
+        padding: var(--spacing-sm) 0;
+    }
+
+    nav ul li {
+        margin: 0;
+        width: 100%;
+    }
+    
+    nav a {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        text-align: center;
+        border-bottom: 1px solid #eee;
+    }
+
+    nav ul li:last-child a {
+        border-bottom: none;
+    }
+    
+    /* Resetear el indicador de hover vertical */
+    nav a:hover {
+        border-bottom: none;
+        /* [PALETA] Fondo sutil del Primario Oscuro (4a4e69) */
+        background-color: rgba(74, 78, 105, 0.1); 
+    }
+    
+    /* Footer más compacto */
+    footer {
+        padding: var(--spacing-xs) 0;
+    }
+}
+
+/* Media Query adicional para pantallas muy pequeñas */
+@media (max-width: 480px) {
+    body {
+        font-size: 15px;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+}

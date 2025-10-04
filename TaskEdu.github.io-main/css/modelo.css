@@ -1,0 +1,126 @@
+/* Fuente moderna y diseño limpio */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0 20px;
+    /* [PALETA] Fondo Principal (Claro) */
+    background-color: #f2e9e4; 
+    /* [PALETA] Títulos y Contraste (Súper Oscuro) */
+    color: #22223b; 
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    /* [PALETA] Títulos y Contraste (Súper Oscuro) */
+    color: #22223b;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 2.2em;
+}
+
+/* Navegación (Asegurando la consistencia) */
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem 0;
+    background-color: #fff;
+    /* [PALETA] Acento/Línea */
+    border-bottom: 2px solid #c9ada7; 
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 1rem;
+    padding: 0.5rem 0;
+}
+
+nav a {
+    text-decoration: none;
+    /* [PALETA] Secundario/Link */
+    color: #9a8c98; 
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    /* [PALETA] Primario Oscuro */
+    color: #4a4e69;
+}
+
+section {
+    background: #fff;
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+    max-width: 900px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px auto 30px;
+    /* [PALETA] Acento/Línea */
+    border: 1px solid #c9ada7;
+    border-radius: 6px;
+}
+
+ol {
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    /* [PALETA] Títulos y Contraste (Súper Oscuro) */
+    background-color: #22223b; 
+    color: white;
+}
+
+/* --------------------------------
+    Media Queries (Responsividad)
+-------------------------------- */
+@media (max-width: 768px) {
+    body {
+        padding: 0 10px;
+    }
+
+    /* Navegación vertical en pantallas pequeñas */
+    nav ul {
+        flex-direction: column;
+        padding: 0.5rem 0;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0;
+        /* [PALETA] Zebra Stripes (Muy claro, para separador) */
+        border-bottom: 1px solid #f9f9fc;
+        text-align: center;
+    }
+
+    nav ul li:last-child {
+        border-bottom: none;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    section {
+        margin: 20px auto;
+        padding: 15px;
+    }
+}
