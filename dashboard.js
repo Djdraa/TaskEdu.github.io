@@ -1,186 +1,116 @@
+const usuario = JSON.parse(localStorage.getItem("usuarioActivo"));
 const API_URL = "https://taskedu-backend.onrender.com";
 
-/* ================= UI ================= */
+/* ================= PROTECCIÓN ================= */
+if (!usuario) {
+  window.location.href = "login.html";
+}
 
+/* ================= SECCIONES ================= */
 function showSection(id, e) {
   document.querySelectorAll('.view-section').forEach(s => s.classList.remove('active'));
   document.querySelectorAll('.sidebar a').forEach(a => a.classList.remove('active'));
 
-  const section = document.getElementById(id);
-  if (section) section.classList.add('active');
+  document.getElementById(id)?.classList.add('active');
 
   if (e) {
     e.currentTarget.classList.add('active');
-    const title = document.getElementById('view-title');
-    if (title) title.innerText = e.currentTarget.innerText;
+    document.getElementById('view-title').innerText = e.currentTarget.innerText;
   }
 }
 
-function toggleNoti() {
-  const p = document.getElementById('notiPanel');
-  if (!p) return;
-  p.style.display = p.style.display === 'block' ? 'none' : 'block';
-}
-
-function openModal(idx = -1) {
-  const m = document.getElementById('modal');
-  if (!m) return;
-
-  m.classList.add('active');
-
-  const title = document.getElementById('mTitle');
-  const editIdx = document.getElementById('editIdx');
-  const inputTitle = document.getElementById('title');
-  const inputDesc = document.getElementById('desc');
-  const inputPri = document.getElementById('pri');
-  const inputDate = document.getElementById('date');
-
-  if (idx > -1) {
-    const tareas = window._tareasCache || [];
-    const t = tareas[idx];
-
-    if (title) title.innerText = "Editar Tarea";
-    if (editIdx) editIdx.value = idx;
-
-    if (inputTitle) inputTitle.value = t.titulo || "";
-    if (inputDesc) inputDesc.value = t.descripcion || "";
-    if (inputPri) inputPri.value = t.prioridad || "Alta";
-    if (inputDate) inputDate.value = t.fecha_entrega || "";
-  } else {
-    if (title) title.innerText = "Nueva Tarea";
-    if (editIdx) editIdx.value = -1;
-
-    if (inputTitle) inputTitle.value = "";
-    if (inputDesc) inputDesc.value = "";
-    if (inputPri) inputPri.value = "Alta";
-    if (inputDate) inputDate.value = "";
-  }
+/* ================= MODAL ================= */
+function openModal() {
+  document.getElementById('modal')?.classList.add('active');
 }
 
 function closeModal() {
-  const m = document.getElementById('modal');
-  if (m) m.classList.remove('active');
+  document.getElementById('modal')?.classList.remove('active');
 }
 
-/* ================= TAREAS API ================= */
-
+/* ================= CREAR TAREA ================= */
 async function saveTask() {
-  const t = document.getElementById('title')?.value.trim();
-  const d = document.getElementById('desc')?.value.trim();
-  const p = document.getElementById('pri')?.value;
-  const f = document.getElementById('date')?.value;
+  const t = document.getElementById('title').value.trim();
+  const d = document.getElementById('desc').value.trim();
+  const p = document.getElementById('pri').value;
+  const f = document.getElementById('date').value;
 
-  if (!t || !f) {
-    alert("Completa los datos");
+  if (!t || !d || !f) {
+    alert("Completa los campos");
     return;
   }
 
-  try {
-    await fetch(`${API_URL}/tarea`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        id_usuario: 1,
-        titulo: t,
-        descripcion: d,
-        prioridad: p,
-        fecha_entrega: f
-      })
-    });
+  await fetch(`${API_URL}/tarea`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      id_usuario: usuario.id_usuario,
+      titulo: t,
+      descripcion: d,
+      prioridad: p,
+      fecha_entrega: f
+    })
+  });
 
-    closeModal();
-    renderTasks();
-
-  } catch (err) {
-    console.error("Error guardando tarea:", err);
-  }
+  closeModal();
+  renderTasks();
 }
 
-async function renderTasks(filtro = 'todas') {
+/* ================= LISTAR TAREAS ================= */
+async function renderTasks() {
   const container = document.getElementById('taskGrid');
-  const nList = document.getElementById('notiList');
-  const badge = document.getElementById('badge');
-
-  if (!container || !nList || !badge) return;
 
   container.innerHTML = "";
-  nList.innerHTML = "";
 
-  try {
-    const res = await fetch(`${API_URL}/tareas/1`);
-    const tareas = await res.json();
+  const res = await fetch(`${API_URL}/tareas/${usuario.id_usuario}`);
+  const tareas = await res.json();
 
-    window._tareasCache = tareas;
+  tareas.forEach(task => {
+    container.innerHTML += `
+      <div class="task-card">
+        <h3>${task.titulo}</h3>
+        <p>${task.descripcion}</p>
+        <p>${task.prioridad}</p>
+        <p>${task.fecha_entrega}</p>
 
-    let count = 0;
+        <input placeholder="Comentario..." id="c-${task.id_tarea}">
+        <button onclick="addComment(${task.id_tarea})">Comentar</button>
 
-    tareas.forEach((task, i) => {
-
-      let dotColor =
-        task.prioridad === 'Alta' ? '#ef4444' :
-        task.prioridad === 'Media' ? '#f59e0b' :
-        '#10b981';
-
-      nList.innerHTML += `
-        <div class="noti-item">
-          <div class="status-dot" style="background:${dotColor}"></div>
-          <div>
-            <strong>${task.titulo}</strong><br>
-            <small>Prioridad ${task.prioridad}</small>
-          </div>
-        </div>
-      `;
-
-      if (filtro !== 'todas' && task.prioridad !== filtro) return;
-
-      count++;
-
-      container.innerHTML += `
-        <div class="task-card">
-          <div class="task-header">
-            <span class="priority-badge ${task.prioridad}">
-              ${task.prioridad}
-            </span>
-            <span style="cursor:pointer" onclick="openModal(${i})">⋯</span>
-          </div>
-
-          <h3>${task.titulo}</h3>
-          <p>${task.descripcion}</p>
-
-          <div class="task-footer">
-            📅 Vence: ${task.fecha_entrega}
-          </div>
-
-          <button onclick="deleteTask(${task.id_tarea})"
-            style="margin-top:10px; color:red; background:none; border:none; cursor:pointer">
-            Eliminar
-          </button>
-        </div>
-      `;
-    });
-
-    badge.innerText = count;
-
-  } catch (err) {
-    console.error("Error cargando tareas:", err);
-  }
+        <button onclick="deleteTask(${task.id_tarea})">Eliminar</button>
+      </div>
+    `;
+  });
 }
 
+/* ================= COMENTARIO ================= */
+async function addComment(id) {
+  const input = document.getElementById(`c-${id}`);
+  const texto = input.value.trim();
+
+  if (!texto) return;
+
+  await fetch(`${API_URL}/comentario`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      id_tarea: id,
+      contenido: texto
+    })
+  });
+
+  input.value = "";
+}
+
+/* ================= ELIMINAR ================= */
 async function deleteTask(id) {
-  try {
-    await fetch(`${API_URL}/tarea/${id}`, {
-      method: "DELETE"
-    });
+  await fetch(`${API_URL}/tarea/${id}`, {
+    method: "DELETE"
+  });
 
-    renderTasks();
-
-  } catch (err) {
-    console.error("Error eliminando tarea:", err);
-  }
+  renderTasks();
 }
 
-/* ================= INIT ================= */
-
+/* INIT */
 document.addEventListener("DOMContentLoaded", () => {
   renderTasks();
 });

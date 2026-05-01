@@ -311,3 +311,43 @@ body {
 .view-section.active { 
     display: block; 
 }
+
+/* ================= COMENTARIOS ================= */
+.comment-box{
+    margin-top:15px;
+    display:flex;
+    gap:10px;
+}
+
+.comment-box input{
+    flex:1;
+    padding:8px;
+    border-radius:8px;
+    border:1px solid #ddd;
+}
+
+.comment-box button{
+    background:#1f2937;
+    color:white;
+    border:none;
+    padding:8px 12px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+/* ================= ACTIVIDAD ================= */
+.activity-panel{
+    margin-top:40px;
+    background:white;
+    padding:20px;
+    border-radius:15px;
+}
+
+.activity-item{
+    border-bottom:1px solid #eee;
+    padding:10px 0;
+}
+
+.activity-item small{
+    color:gray;
+}

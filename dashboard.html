@@ -5,42 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TaskEdu</title>
 
-    <!-- CSS -->
     <link rel="stylesheet" href="css/dashboard.css">
 </head>
 <body>
 
 <aside class="sidebar">
     <h2>🎓 TaskEdu</h2>
+
     <nav>
         <a href="#" class="active" onclick="showSection('panel', event)">Panel de Control</a>
         <a href="#" onclick="showSection('mis-tareas', event)">Mis Tareas</a>
         <a href="#" onclick="showSection('calendario', event)">Calendario</a>
+        <a href="#" onclick="showSection('historial', event)">Historial de actividades</a>
         <a href="#" onclick="showSection('config', event)">Configuración</a>
     </nav>
-    <button class="btn-logout" onclick="window.location.href='index.html'">Cerrar sesión</button>
 </aside>
 
 <main class="main-content">
+
     <header class="topbar">
         <h1 id="view-title">Panel de Control</h1>
 
         <div class="top-actions">
+
             <div class="noti-wrapper">
-                <div class="noti-icon" onclick="toggleNoti()">🔔
+                <div class="noti-icon" onclick="toggleNoti()">
+                    🔔
                     <span id="badge" class="noti-badge">0</span>
                 </div>
+
                 <div id="notiPanel" class="noti-panel">
                     <div class="noti-header">Notificaciones</div>
                     <div id="notiList" class="noti-list"></div>
                 </div>
             </div>
 
-            <button class="btn-add" onclick="openModal()">+ Nueva tarea</button>
+            <button class="btn-add" onclick="openModal()">
+                + Nueva tarea
+            </button>
+
         </div>
     </header>
 
+    <!-- ================= PANEL ================= -->
     <section id="panel" class="view-section active">
+
         <select onchange="renderTasks(this.value)">
             <option value="todas">Todas</option>
             <option value="Alta">Alta</option>
@@ -49,27 +58,35 @@
         </select>
 
         <div id="taskGrid" class="task-container"></div>
-    </section>
 
+    <!-- ================= MIS TAREAS ================= -->
     <section id="mis-tareas" class="view-section">
-        <div class="task-card">Mis tareas</div>
+        <div class="task-card">
+            Mis tareas
+        </div>
     </section>
 
+    <!-- ================= CALENDARIO ================= -->
     <section id="calendario" class="view-section">
-        <div class="task-card">Calendario</div>
+        <div class="task-card">
+            Calendario
+        </div>
     </section>
 
+    <!-- ================= CONFIG ================= -->
     <section id="config" class="view-section">
-        <div class="task-card">Configuración</div>
+        <div class="task-card">
+            Configuración
+        </div>
     </section>
+
 </main>
 
-<!-- MODAL -->
+<!-- ================= MODAL ================= -->
 <div id="modal" class="modal">
     <div class="modal-box">
-        <h2 id="mTitle">Nueva Tarea</h2>
 
-        <input type="hidden" id="editIdx">
+        <h2>Nueva Tarea</h2>
 
         <input id="title" placeholder="Título">
         <textarea id="desc" placeholder="Descripción"></textarea>
@@ -84,10 +101,10 @@
 
         <button onclick="closeModal()">Cancelar</button>
         <button onclick="saveTask()">Guardar</button>
+
     </div>
 </div>
 
-<!-- JS -->
 <script src="dashboard.js"></script>
 
 </body>
