@@ -1,77 +1,65 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Propuesta técnica para una aplicación de gestión de tareas enfocada en estudiantes.">
-  <meta name="author" content="Deivy Ricardo Alegría Agudelo">
-  <title>Propuesta Técnica - Gestión de Tareas Estudiantiles</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <title>TaskEdu - Gestión Académica</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  
-<header>
-  <button id="mode-toggle" aria-label="Alternar modo oscuro/claro">🌙</button> <h1>🎓 Aplicación de Gestión de Tareas para Estudiantes</h1>
-  <p>Propuesta Técnica y Contexto del Proyecto</p>
+
+<!-- ================= HEADER ================= -->
+<header class="landing-header">
+    <div class="logo">
+        <h1>🎓 TaskEdu</h1>
+    </div>
+
+    <nav class="landing-nav">
+        <a href="contexto.html">Contexto</a>
+        <a href="ftecnica.html">Ficha Técnica</a>
+        <a href="proveedores.html">Proveedores</a>
+        <a href="modelo.html">Modelo</a>
+        <a href="propuesta.html">Propuesta</a>
+        <a href="sobre.html">Sobre Nosotros</a>
+        <a href="dashboard.html">Dashboard</a>
+    </nav>
+
+    <div class="auth-buttons">
+        <button onclick="mostrarLogin()">Iniciar Sesión</button>
+        <button class="btn-primary" onclick="mostrarRegistro()">Registrarse</button>
+    </div>
 </header>
 
-  <nav>
-    <ul>
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="contexto.html">Contexto</a></li>
-      <li><a href="ftecnica.html">Ficha Técnica</a></li>
-      <li><a href="proveedores.html">Proveedores</a></li>
-      <li><a href="modelo.html">Modelo</a></li>
-      <li><a href="propuesta.html">Propuesta</a></li>
-      <li><a href="sobre.html">Sobre Nosotros</a></li>
-    </ul>
-  </nav>
+<!-- ================= HERO ================= -->
+<section class="hero">
+    <div class="hero-text">
+        <h2 class="animated-title">
+            Organiza tus tareas académicas de manera inteligente para que puedas
+        </h2>
 
-  <section class="banner" id="inicio">
-    <img src="img/taskedu.png" alt="Logo del Proyecto" />
-    <p><strong>Versión:</strong> 1.0 | <strong>Año:</strong> 2025</p>
-  </section>
+        <p class="animated-subtitle">
+            Gestionar proyectos, tareas, notificaciones y seguimiento académico en un solo lugar.
+        </p>
 
-  <main class="container" id="contexto">
-    <h2>Propuesta Técnica y Económica para Solución de Software Empresarial</h2>
+        <button class="btn-primary hero-btn" onclick="mostrarRegistro()">
+            Comenzar Ahora
+        </button>
+    </div>
+</section>
 
-    <p><strong>Propuesta que promueve TaskEdu</strong></p>
-    <p>
-      TaskEdu promueve una plataforma web inteligente que ayuda a los estudiantes a organizar, priorizar y cumplir sus tareas académicas de forma efectiva. Integra funciones intuitivas como recordatorios automáticos, seguimiento por materias, calendario interactivo y estadísticas de rendimiento.
-    </p>
+<!-- ================= FOOTER ================= -->
+<footer>
+    <p>© 2026 TaskAcademy. Todos los derechos reservados.</p>
+</footer>
 
-    <h3>🔍 ¿Qué propone TaskEdu?</h3>
-    <ul>
-      <li>Centralizar la gestión académica en un solo lugar.</li>
-      <li>Automatizar recordatorios y fechas clave para reducir el olvido y la procrastinación.</li>
-      <li>Fomentar la organización personal con herramientas visuales y estadísticas que motiven al estudiante a mejorar su rendimiento.</li>
-      <li>Acompañar al estudiante en su proceso formativo, ayudándole a desarrollar hábitos de responsabilidad, planificación y cumplimiento.</li>
-    </ul>
+<!-- ================= MODAL ================= -->
+<div id="modalOverlay" class="modal-overlay">
+    <div class="modal-content">
+        <span class="close-btn" onclick="cerrarModal()">×</span>
+        <iframe id="modalFrame"></iframe>
+    </div>
+</div>
 
-    <h3>🎯 Beneficios Clave</h3>
-    <ul>
-      <li>Menos estrés y mayor control sobre el tiempo académico.</li>
-      <li>Mejora del rendimiento escolar gracias a la planificación eficaz.</li>
-      <li>Ahorro de tiempo en la gestión de tareas y actividades.</li>
-      <li>Acceso desde cualquier dispositivo con conexión a internet.</li>
-    </ul>
-
-    <h3>📄 Documento Final</h3>
-    <p>Puedes descargar o visualizar el documento final de la propuesta aquí:</p>
-    <p>
-      <a href="https://drive.google.com/file/d/1IvIv2cRSimsBn3crvGrjKSrdQt3Uj0mj/view?usp=sharing" 
-         target="_blank" 
-         rel="noopener noreferrer" 
-         class="btn-download">
-        📥 Documento Final Descargable en PDF
-      </a>
-    </p>
-  </main>
-
-  <footer>
-    <p>© 2025 Propuesta de Ricardo Alegría. Todos los derechos reservados.</p>
-  </footer>
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
