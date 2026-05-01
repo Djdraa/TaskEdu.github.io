@@ -160,6 +160,21 @@ app.post("/comentario", async (req, res) => {
 });
 
 
+/* ================= COMPLETAR TAREA ================= */
+app.patch("/tarea/:id/completar", async (req, res) => {
+  const { completada } = req.body;
+  try {
+    await pool.query(
+      "UPDATE tarea SET completada = $1 WHERE id_tarea = $2",
+      [completada, req.params.id]
+    );
+    res.json({ ok: true });
+  } catch (e) {
+    console.error("Error al actualizar:", e);
+    res.status(500).json({ error: "Error al actualizar" });
+  }
+});
+
 /* ================= HEALTH CHECK ================= */
 app.get("/", (req, res) => {
   res.json({ status: "ok", app: "TaskEdu" });

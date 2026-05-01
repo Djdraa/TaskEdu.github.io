@@ -3,118 +3,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TaskEdu</title>
-
+    <title>TaskEdu — Dashboard</title>
     <link rel="stylesheet" href="css/dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
 <aside class="sidebar">
-    <h2>🎓 TaskEdu</h2>
+    <div class="sidebar-logo">
+        <span class="logo-icon">🎓</span>
+        <span>TaskEdu</span>
+    </div>
 
     <nav>
         <a href="#" class="active" onclick="showSection('panel', event)">Panel de Control</a>
         <a href="#" onclick="showSection('mis-tareas', event)">Mis Tareas</a>
         <a href="#" onclick="showSection('calendario', event)">Calendario</a>
-        <a href="#" onclick="showSection('historial', event)">Historial de actividades</a>
+        <a href="#" onclick="showSection('pomodoro', event)">Pomodoro</a>
+        <a href="#" onclick="showSection('historial', event)">Historial</a>
         <a href="#" onclick="showSection('config', event)">Configuración</a>
     </nav>
+
+    <div class="sidebar-footer">
+        <div class="user-info" id="sidebarUser"></div>
+        <button class="btn-logout" onclick="cerrarSesion()">Cerrar sesión</button>
+    </div>
 </aside>
 
 <main class="main-content">
 
     <header class="topbar">
         <h1 id="view-title">Panel de Control</h1>
-
         <div class="top-actions">
-
             <div class="noti-wrapper">
                 <div class="noti-icon" onclick="toggleNoti()">
                     🔔
                     <span id="badge" class="noti-badge">0</span>
                 </div>
-
                 <div id="notiPanel" class="noti-panel">
                     <div class="noti-header">Notificaciones</div>
                     <div id="notiList" class="noti-list"></div>
                 </div>
             </div>
-
-            <button class="btn-add" onclick="openModal()">
-                + Nueva tarea
-            </button>
-
+            <button class="btn-add" onclick="openModal()">+ Nueva tarea</button>
         </div>
     </header>
 
-    <!-- ================= PANEL ================= -->
+    <!-- PANEL -->
     <section id="panel" class="view-section active">
+        <div class="widgets-row">
+            <div class="widget">
+                <div class="widget-label">Tareas totales</div>
+                <div class="widget-value" id="w-total">0</div>
+            </div>
+            <div class="widget widget-green">
+                <div class="widget-label">Completadas</div>
+                <div class="widget-value" id="w-completadas">0</div>
+            </div>
+            <div class="widget widget-red">
+                <div class="widget-label">Pendientes</div>
+                <div class="widget-value" id="w-pendientes">0</div>
+            </div>
+            <div class="widget widget-amber">
+                <div class="widget-label">Prioridad Alta</div>
+                <div class="widget-value" id="w-alta">0</div>
+            </div>
+        </div>
 
-        <select onchange="renderTasks(this.value)">
-            <option value="todas">Todas</option>
-            <option value="Alta">Alta</option>
-            <option value="Media">Media</option>
-            <option value="Baja">Baja</option>
-        </select>
+        <div class="panel-grid">
+            <div class="panel-main">
+                <div class="section-header">
+                    <h2>Mis Tareas</h2>
+                    <select onchange="renderTasks(this.value)" class="filtro-select">
+                        <option value="todas">Todas</option>
+                        <option value="Alta">Alta</option>
+                        <option value="Media">Media</option>
+                        <option value="Baja">Baja</option>
+                    </select>
+                </div>
+                <div id="taskGrid" class="task-container"></div>
+            </div>
 
-        <div id="taskGrid" class="task-container"></div>
-
+            <div class="panel-side">
+                <div class="side-card">
+                    <h3>Progreso semanal</h3>
+                    <canvas id="donutChart" width="180" height="180"></canvas>
+                    <p id="donut-label" class="donut-label">Cargando...</p>
+                </div>
+                <div class="side-card">
+                    <h3>Tareas urgentes</h3>
+                    <div id="urgentes-list"></div>
+                </div>
+                <div class="side-card notas-card">
+                    <h3>Notas rápidas</h3>
+                    <textarea id="notasRapidas" placeholder="Anota algo importante..."></textarea>
+                    <button onclick="guardarNota()" class="btn-nota">Guardar nota</button>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- ================= MIS TAREAS ================= -->
+    <!-- MIS TAREAS -->
     <section id="mis-tareas" class="view-section">
-        <div class="task-card">
-            Mis tareas
+        <div class="section-header">
+            <h2>Mis Tareas</h2>
+            <div class="tabs">
+                <button class="tab active" onclick="filtrarPorEstado('todas', this)">Todas</button>
+                <button class="tab" onclick="filtrarPorEstado('pendiente', this)">Pendientes</button>
+                <button class="tab" onclick="filtrarPorEstado('completada', this)">Completadas</button>
+            </div>
         </div>
+        <div id="misTareasGrid" class="task-container"></div>
     </section>
 
-    <!-- ================= CALENDARIO ================= -->
+    <!-- CALENDARIO -->
     <section id="calendario" class="view-section">
-        <div class="task-card">
-            Calendario
+        <div class="section-header"><h2>Calendario</h2></div>
+        <div class="calendar-wrapper">
+            <div class="cal-header">
+                <button onclick="cambiarMes(-1)">&#8592;</button>
+                <span id="cal-titulo"></span>
+                <button onclick="cambiarMes(1)">&#8594;</button>
+            </div>
+            <div class="cal-grid" id="cal-grid"></div>
         </div>
     </section>
 
-    <!-- ================= HISTORIAL ================= -->
+    <!-- POMODORO -->
+    <section id="pomodoro" class="view-section">
+        <div class="section-header"><h2>Temporizador Pomodoro</h2></div>
+        <div class="pomodoro-container">
+            <div class="pomodoro-ring">
+                <svg viewBox="0 0 120 120">
+                    <circle cx="60" cy="60" r="54" fill="none" stroke="var(--surface2)" stroke-width="8"/>
+                    <circle id="pomo-arc" cx="60" cy="60" r="54" fill="none" stroke="#7C6FF7" stroke-width="8"
+                        stroke-dasharray="339.3" stroke-dashoffset="0" stroke-linecap="round"
+                        transform="rotate(-90 60 60)" style="transition: stroke-dashoffset 1s linear"/>
+                </svg>
+                <div class="pomo-time" id="pomo-display">25:00</div>
+            </div>
+            <div class="pomo-label" id="pomo-label">Sesión de estudio</div>
+            <div class="pomo-controls">
+                <button class="btn-pomo" onclick="iniciarPomodoro()">Iniciar</button>
+                <button class="btn-pomo btn-pomo-sec" onclick="pausarPomodoro()">Pausar</button>
+                <button class="btn-pomo btn-pomo-sec" onclick="resetPomodoro()">Reiniciar</button>
+            </div>
+            <div class="pomo-modos">
+                <button class="tab active" onclick="setModo(25, 'Sesión de estudio', this)">Estudio 25min</button>
+                <button class="tab" onclick="setModo(5, 'Descanso corto', this)">Descanso 5min</button>
+                <button class="tab" onclick="setModo(15, 'Descanso largo', this)">Descanso 15min</button>
+            </div>
+            <div class="pomo-stats">
+                <span>🍅 Pomodoros hoy: <strong id="pomo-count">0</strong></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- HISTORIAL -->
     <section id="historial" class="view-section">
-        <div class="task-card">
-            Historial de actividades
-        </div>
+        <div class="section-header"><h2>Historial de actividades</h2></div>
+        <div id="historial-list" class="historial-container"></div>
     </section>
 
-    <!-- ================= CONFIG ================= -->
+    <!-- CONFIG -->
     <section id="config" class="view-section">
-        <div class="task-card">
-            Configuración
+        <div class="section-header"><h2>Configuración</h2></div>
+        <div class="config-card">
+            <h3>Mi perfil</h3>
+            <div class="config-row">
+                <label>Nombre</label>
+                <input type="text" id="cfg-nombre" placeholder="Tu nombre">
+            </div>
+            <div class="config-row">
+                <label>Correo</label>
+                <input type="email" id="cfg-correo" placeholder="Tu correo" disabled>
+            </div>
+            <button class="btn-save-cfg" onclick="guardarConfig()">Guardar cambios</button>
+        </div>
+        <div class="config-card danger-zone">
+            <h3>Zona de peligro</h3>
+            <button class="btn-logout" onclick="cerrarSesion()">Cerrar sesión</button>
         </div>
     </section>
 
 </main>
 
-<!-- ================= MODAL ================= -->
+<!-- MODAL NUEVA TAREA -->
 <div id="modal" class="modal">
     <div class="modal-box">
-
         <h2>Nueva Tarea</h2>
-
-        <input id="title" placeholder="Título">
+        <input id="title" placeholder="Título de la tarea">
         <textarea id="desc" placeholder="Descripción"></textarea>
-
         <select id="pri">
-            <option value="Alta">Alta</option>
-            <option value="Media">Media</option>
-            <option value="Baja">Baja</option>
+            <option value="Alta">Alta prioridad</option>
+            <option value="Media">Media prioridad</option>
+            <option value="Baja">Baja prioridad</option>
         </select>
-
         <input id="date" type="date">
-
-        <button onclick="closeModal()">Cancelar</button>
-        <button onclick="saveTask()">Guardar</button>
-
+        <div class="modal-actions">
+            <button class="btn-cancel" onclick="closeModal()">Cancelar</button>
+            <button class="btn-primary-modal" onclick="saveTask()">Guardar tarea</button>
+        </div>
     </div>
 </div>
 
 <script src="dashboard.js"></script>
-
 </body>
 </html>
