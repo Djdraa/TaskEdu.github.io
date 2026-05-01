@@ -19,6 +19,11 @@ function showSection(id, e) {
   }
 }
 
+/* ================= NOTIFICACIONES ================= */
+function toggleNoti() {
+  document.getElementById('notiPanel')?.classList.toggle('active');
+}
+
 /* ================= MODAL ================= */
 function openModal() {
   document.getElementById('modal')?.classList.add('active');
@@ -30,53 +35,102 @@ function closeModal() {
 
 /* ================= CREAR TAREA ================= */
 async function saveTask() {
-  const t = document.getElementById('title').value.trim();
-  const d = document.getElementById('desc').value.trim();
-  const p = document.getElementById('pri').value;
-  const f = document.getElementById('date').value;
+  const t   = document.getElementById('title').value.trim();
+  const d   = document.getElementById('desc').value.trim();
+  const p   = document.getElementById('pri').value;
+  const f   = document.getElementById('date').value;
+  const btn = document.querySelector('#modal .modal-box button:last-child');
 
   if (!t || !d || !f) {
     alert("Completa los campos");
     return;
   }
 
-  await fetch(`${API_URL}/tarea`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      id_usuario: usuario.id_usuario,
-      titulo: t,
-      descripcion: d,
-      prioridad: p,
-      fecha_entrega: f
-    })
-  });
+  btn.disabled    = true;
+  btn.textContent = "Guardando...";
 
-  closeModal();
-  renderTasks();
+  try {
+    const res = await fetch(`${API_URL}/tarea`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        id_usuario:    usuario.id_usuario,
+        titulo:        t,
+        descripcion:   d,
+        prioridad:     p,
+        fecha_entrega: f
+      })
+    });
+
+    if (!res.ok) {
+      const data = await res.json();
+      alert(data.error || "Error al crear tarea");
+      return;
+    }
+
+    closeModal();
+    document.getElementById('title').value = "";
+    document.getElementById('desc').value  = "";
+    document.getElementById('date').value  = "";
+    renderTasks();
+
+  } catch (error) {
+    console.error(error);
+    alert("Error de conexión");
+  } finally {
+    btn.disabled    = false;
+    btn.textContent = "Guardar";
+  }
 }
 
 /* ================= LISTAR TAREAS ================= */
-async function renderTasks() {
+let todasLasTareas = [];
+
+async function renderTasks(filtro = "todas") {
   const container = document.getElementById('taskGrid');
+
+  if (!todasLasTareas.length) {
+    container.innerHTML = "<p>Cargando...</p>";
+
+    try {
+      const res = await fetch(`${API_URL}/tareas/${usuario.id_usuario}`);
+      if (!res.ok) throw new Error("Error al obtener tareas");
+      todasLasTareas = await res.json();
+    } catch (error) {
+      console.error(error);
+      container.innerHTML = "<p>Error al cargar tareas. Intenta de nuevo.</p>";
+      return;
+    }
+  }
+
+  const tareas = filtro === "todas"
+    ? todasLasTareas
+    : todasLasTareas.filter(t => t.prioridad === filtro);
 
   container.innerHTML = "";
 
-  const res = await fetch(`${API_URL}/tareas/${usuario.id_usuario}`);
-  const tareas = await res.json();
+  if (tareas.length === 0) {
+    container.innerHTML = "<p>No hay tareas para mostrar.</p>";
+    return;
+  }
 
   tareas.forEach(task => {
+    const fecha = task.fecha_entrega
+      ? new Date(task.fecha_entrega).toLocaleDateString("es-CO")
+      : "Sin fecha";
+
     container.innerHTML += `
       <div class="task-card">
         <h3>${task.titulo}</h3>
         <p>${task.descripcion}</p>
-        <p>${task.prioridad}</p>
-        <p>${task.fecha_entrega}</p>
+        <span class="badge badge-${task.prioridad?.toLowerCase()}">${task.prioridad}</span>
+        <p class="task-date">📅 ${fecha}</p>
 
-        <input placeholder="Comentario..." id="c-${task.id_tarea}">
-        <button onclick="addComment(${task.id_tarea})">Comentar</button>
-
-        <button onclick="deleteTask(${task.id_tarea})">Eliminar</button>
+        <div class="task-actions">
+          <input placeholder="Comentario..." id="c-${task.id_tarea}">
+          <button onclick="addComment(${task.id_tarea})">Comentar</button>
+          <button class="btn-delete" onclick="deleteTask(${task.id_tarea})">Eliminar</button>
+        </div>
       </div>
     `;
   });
@@ -89,25 +143,32 @@ async function addComment(id) {
 
   if (!texto) return;
 
-  await fetch(`${API_URL}/comentario`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      id_tarea: id,
-      contenido: texto
-    })
-  });
+  try {
+    await fetch(`${API_URL}/comentario`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id_tarea: id, contenido: texto })
+    });
 
-  input.value = "";
+    input.value = "";
+  } catch (error) {
+    console.error(error);
+    alert("Error al guardar comentario");
+  }
 }
 
 /* ================= ELIMINAR ================= */
 async function deleteTask(id) {
-  await fetch(`${API_URL}/tarea/${id}`, {
-    method: "DELETE"
-  });
+  if (!confirm("¿Eliminar esta tarea?")) return;
 
-  renderTasks();
+  try {
+    await fetch(`${API_URL}/tarea/${id}`, { method: "DELETE" });
+    todasLasTareas = todasLasTareas.filter(t => t.id_tarea !== id);
+    renderTasks();
+  } catch (error) {
+    console.error(error);
+    alert("Error al eliminar tarea");
+  }
 }
 
 /* INIT */
