@@ -5,65 +5,129 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Contexto del proyecto de gestión de tareas para estudiantes.">
   <meta name="author" content="Deivy Ricardo Alegría Agudelo">
-  <title>Contexto del Proyecto - TaskEdu</title>
+  <title>Contexto - TaskEdu</title>
+
+  <!-- CSS GLOBAL -->
+  <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/contexto.css">
 </head>
+
 <body>
-<nav>
-  <ul>
-    <li><a href="index.html">Inicio</a></li>
-    <li><a href="contexto.html">Contexto</a></li>
-    <li><a href="ftecnica.html">Ficha Técnica</a></li>
-    <li><a href="proveedores.html">Proveedores</a></li>
-    <li><a href="modelo.html">Modelo</a></li>
-    <li><a href="propuesta.html">Propuesta</a></li>
-    <li><a href="sobre.html">Sobre Nosotros</a></li>
-  </ul>
-</nav>
-  <header>
-    <h1> Contexto del Proyecto</h1>
-  </header>
 
-  <main class="container">
-    <section>
-      <h2>📌 Descripción del Problema</h2>
+<!-- ================= HEADER GLOBAL ================= -->
+<header class="landing-header">
+    <div class="logo">
+        <a href="index.html">🎓 TaskEdu</a>
+    </div>
+
+    <nav class="landing-nav">
+        <a href="contexto.html" class="active">Contexto</a>
+        <a href="ftecnica.html">Ficha Técnica</a>
+        <a href="proveedores.html">Proveedores</a>
+        <a href="modelo.html">Modelo</a>
+        <a href="propuesta.html">Propuesta</a>
+        <a href="sobre.html">Sobre Nosotros</a>
+    </nav>
+
+    <div class="auth-buttons">
+        <button onclick="mostrarLogin()">Iniciar Sesión</button>
+        <button class="btn-primary" onclick="mostrarRegistro()">Registrarse</button>
+    </div>
+</header>
+
+
+<!-- ================= BANNER CONTEXTO ================= -->
+<section class="page-banner">
+    <h2>📌 Contexto del Proyecto</h2>
+</section>
+
+<!-- ================= CONTENIDO ================= -->
+<main class="page-container">
+
+    <section class="card">
+      <h3>📌 Descripción del Problema</h3>
       <p>
-        En la actualidad, muchos estudiantes enfrentan problemas para gestionar correctamente sus tareas académicas. La falta de una herramienta tecnológica centralizada y adaptada a sus rutinas provoca desorganización, incumplimiento de entregas y dificultades para priorizar actividades importantes. Esto se traduce en mayor estrés, bajo rendimiento académico y pérdida de oportunidades.
+        En el entorno académico actual, los estudiantes enfrentan múltiples responsabilidades simultáneamente: 
+        tareas, trabajos en grupo, proyectos finales, evaluaciones y actividades extracurriculares. 
+        Sin embargo, muchos no cuentan con una herramienta organizada y centralizada que les permita 
+        gestionar eficientemente estas obligaciones. <br> 
+
+      La falta de planificación adecuada genera desorganización, incumplimiento de fechas de entrega, 
+      acumulación de tareas y altos niveles de estrés. Además, el uso de múltiples plataformas 
+      o métodos tradicionales (como agendas físicas o notas dispersas) dificulta el seguimiento
+       adecuado de las actividades académicas. <br>
+
+      Esta problemática impacta directamente el rendimiento académico, la productividad y
+      el bienestar emocional de los estudiantes.
       </p>
     </section>
 
-    <section>
-      <h2>🧩 Justificación del Proyecto</h2>
+    <section class="card">
+      <h3>🧩 Justificación del Proyecto</h3>
       <p>
-        Este proyecto busca solucionar las deficiencias en la gestión de tareas mediante una plataforma digital diseñada para estudiantes. Se pretende facilitar el seguimiento de responsabilidades escolares, incentivar hábitos de organización y reducir la procrastinación, brindando herramientas como recordatorios, priorización y categorización por asignatura.
+      El proyecto TaskEdu surge como una solución tecnológica diseñada para mejorar la organización académica 
+      de los estudiantes mediante una aplicación web intuitiva, moderna y accesible desde cualquier dispositivo.
+        <br>La plataforma permitirá centralizar la gestión de tareas en un solo lugar, facilitando:
+
+        <ul>
+          <li>La creación y edición de tareas.</li>
+          <li>La asignación de fechas límite.</li>
+          <li>La clasificación por materia.</li>
+          <li>La priorización según nivel de importancia.</li>
+          <li>La visualización clara del progreso académico.</li>
+        </ul>
+        Con esto se busca fomentar hábitos de planificación, responsabilidad y disciplina, 
+       contribuyendo a reducir el estrés y mejorar el desempeño estudiantil.
       </p>
     </section>
 
-    <section>
-      <h2>🎯 Objetivo General</h2>
+    <section class="card">
+      <h3>🎯 Objetivo General</h3>
       <p>
-        Desarrollar una aplicación web funcional, responsiva e intuitiva, que permita a los estudiantes gestionar eficazmente sus tareas académicas. El sistema debe permitir crear, editar, clasificar, visualizar y recibir notificaciones sobre tareas, todo dentro de una interfaz amigable adaptada a distintos dispositivos.
+       Desarrollar una aplicación web funcional, responsiva e intuitiva que permita a 
+       los estudiantes gestionar de manera eficiente sus tareas académicas, facilitando la organización, 
+       el seguimiento y el cumplimiento oportuno de sus responsabilidades escolares.
       </p>
     </section>
 
-    <section>
-      <h2>🚀 Objetivos Específicos</h2>
+    <section class="card">
+      <h3>🚀 Objetivos Específicos</h3>
       <ul>
-        <li>Diseñar una interfaz clara y accesible para estudiantes de distintas edades.</li>
-        <li>Implementar un sistema de roles para control de acceso (administrador, estudiante).</li>
-        <li>Permitir el registro y seguimiento de tareas con fechas límite y niveles de prioridad.</li>
-        <li>Integrar funcionalidades como notificaciones, calendario, filtrado y reportes.</li>
+        <li>Diseñar una interfaz gráfica moderna, clara y fácil de usar.</li>
+        <li>Implementar un sistema de registro e inicio de sesión para los usuarios.</li>
+        <li>Permitir la creación, edición y eliminación de tareas.</li>
+        <li>Facilitar la visualización del estado de las tareas <b>(pendientes, en proceso y completadas)</b> .</li>
+        <li>Integrar niveles de prioridad y fechas límite.</li>
+        <li>Incorporar filtros y categorización por materias.</li>
+        <li>Garantizar que la aplicación sea adaptable a dispositivos móviles y de escritorio.</li>
       </ul>
     </section>
 
-    <div class="img-container">
-      <img src="img/gpt.png" alt="Ilustración del sistema" />
+  <section class="visual-section">
+    <div class="visual-text">
+        <h3>Organización Inteligente</h3>
+        <p>TaskEdu transforma la manera en que los estudiantes gestionan sus responsabilidades académicas.</p>
     </div>
-  </main>
 
-  <footer>
-    <p>© 2025 Propuesta de Ricardo Alegría. Todos los derechos reservados.</p>
-  </footer>
+    <div class="visual-image">
+        <img src="img/gpt.png" alt="Ilustración del sistema">
+    </div>
+</section>
 
+</main>
+
+<footer>
+    <p>© 2026 TaskEdu - Sistema de Gestión Académica</p>
+</footer>
+
+<!-- ================= MODAL GLOBAL ================= -->
+<div id="modalOverlay" class="modal-overlay">
+    <div class="modal-content">
+        <span class="close-btn" onclick="cerrarModal()">×</span>
+        <iframe id="modalFrame"></iframe>
+    </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
