@@ -160,6 +160,11 @@ app.post("/comentario", async (req, res) => {
 });
 
 
+/* ================= HEALTH CHECK ================= */
+app.get("/", (req, res) => {
+  res.json({ status: "ok", app: "TaskEdu" });
+});
+
 /* ================= SERVER ================= */
 const PORT = process.env.PORT || 3000;
 
