@@ -175,6 +175,39 @@ body { display: flex; min-height: 100vh; background: var(--bg); color: var(--tex
 .btn-cancel { background: var(--surface2); color: var(--text-muted); border: 1px solid var(--border); padding: 10px 18px; border-radius: 8px; cursor: pointer; font-size: 14px; }
 .btn-primary-modal { background: var(--accent); color: #fff; border: none; padding: 10px 18px; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 500; }
 
+/* BOTÓN TEMA */
+.btn-tema { background: var(--surface); color: var(--text); border: 1px solid var(--border); padding: 8px 10px; border-radius: 8px; cursor: pointer; font-size: 16px; transition: background 0.2s; line-height: 1; }
+.btn-tema:hover { background: var(--surface2); }
+
+/* TEMA CLARO */
+body.light {
+    --bg: #F1F5F9;
+    --surface: #FFFFFF;
+    --surface2: #E2E8F0;
+    --text: #0F172A;
+    --text-muted: #64748B;
+    --border: rgba(0,0,0,0.08);
+    --sidebar-bg: #1E293B;
+}
+body.light .sidebar { background: var(--sidebar-bg); }
+body.light .sidebar nav a { color: #94A3B8; }
+body.light .sidebar nav a:hover { background: #334155; color: #fff; }
+body.light .sidebar nav a.active { background: var(--accent); color: #fff; }
+body.light .sidebar-footer { border-color: rgba(255,255,255,0.1); }
+body.light .user-info { color: #94A3B8; }
+body.light .noti-panel { background: #fff; box-shadow: 0 8px 32px rgba(0,0,0,0.12); }
+body.light .modal-box { background: #fff; }
+body.light .modal-box input,
+body.light .modal-box textarea,
+body.light .modal-box select { background: var(--surface2); color: var(--text); }
+body.light .filtro-select { background: #fff; color: var(--text); }
+body.light .calendar-wrapper { background: #fff; }
+body.light .cal-header button { background: var(--surface2); color: var(--text); }
+body.light .config-row input { background: var(--surface2); color: var(--text); }
+body.light .notas-card textarea { background: var(--surface2); color: var(--text); }
+body.light .comment-input { background: var(--surface2); color: var(--text); }
+body.light .comment-bubble { background: var(--surface2); }
+
 /* RESPONSIVE */
 @media (max-width: 900px) {
     .panel-grid { grid-template-columns: 1fr; }

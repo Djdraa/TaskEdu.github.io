@@ -3,8 +3,20 @@ const API_URL = "https://taskedu-backend.onrender.com";
 
 if (!usuario) window.top.location.href = "login.html";
 
+/* ===== TEMA ===== */
+function toggleTema() {
+    const esClaro = document.body.classList.toggle('light');
+    localStorage.setItem('tema', esClaro ? 'light' : 'dark');
+    document.getElementById('btnTema').textContent = esClaro ? '☀️' : '🌙';
+}
+
 /* ===== INIT ===== */
 document.addEventListener("DOMContentLoaded", () => {
+    if (localStorage.getItem('tema') === 'light') {
+        document.body.classList.add('light');
+        const btn = document.getElementById('btnTema');
+        if (btn) btn.textContent = '☀️';
+    }
     if (document.getElementById("sidebarUser")) {
         document.getElementById("sidebarUser").textContent = "👤 " + (usuario?.nombre || "");
     }
