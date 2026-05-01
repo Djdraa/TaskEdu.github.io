@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
 
                 localStorage.setItem("usuarioActivo", JSON.stringify(data.usuario));
-                window.location.href = "dashboard.html";
+                window.top.location.href = "dashboard.html";
 
             } catch (error) {
                 console.error(error);
