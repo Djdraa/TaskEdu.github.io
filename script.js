@@ -1,3 +1,5 @@
+const API_URL = "https://taskedu-backend.onrender.com";
+
 /* ================= MODAL ================= */
 
 function mostrarLogin() {
@@ -12,6 +14,8 @@ function abrirModal(url) {
     const overlay = document.getElementById("modalOverlay");
     const frame = document.getElementById("modalFrame");
 
+    if (!overlay || !frame) return;
+
     frame.src = url;
     overlay.classList.add("active");
 }
@@ -20,42 +24,47 @@ function cerrarModal() {
     const overlay = document.getElementById("modalOverlay");
     const frame = document.getElementById("modalFrame");
 
+    if (!overlay || !frame) return;
+
     overlay.classList.remove("active");
     frame.src = "";
 }
 
-/* Cerrar modal al hacer click fuera */
+/* ================= LOGIN REAL ================= */
 
-document.addEventListener("click", function (e) {
-    const overlay = document.getElementById("modalOverlay");
+document.addEventListener("DOMContentLoaded", function () {
 
-    if (e.target === overlay) {
-        cerrarModal();
-    }
-});
-
-
-/* ================= LOGIN ================= */
-document.addEventListener("DOMContentLoaded", function(){
     const loginForm = document.getElementById("loginForm");
 
-    if(loginForm){
-        loginForm.addEventListener("submit", function(e){
+    if (loginForm) {
+        loginForm.addEventListener("submit", async function (e) {
             e.preventDefault();
 
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
+            const correo = document.getElementById("email")?.value;
+            const contrasena = document.getElementById("password")?.value;
 
-            if(email && password){
-                localStorage.setItem("usuarioActivo", "true");
-                
-                // CRÍTICO: Romper el frame si existe para abrir en pantalla completa
-                if (window.top !== window.self) {
-                    window.top.location.href = "dashboard.html";
-                } else {
+            try {
+                const res = await fetch(`${API_URL}/login`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ correo, contrasena })
+                });
+
+                const data = await res.json();
+
+                if (res.ok) {
+                    localStorage.setItem("usuarioActivo", JSON.stringify(data.usuario));
+
                     window.location.href = "dashboard.html";
+                } else {
+                    alert(data.error || "Error en login");
                 }
+
+            } catch (err) {
+                console.error(err);
+                alert("Error de conexión");
             }
         });
     }
+
 });
