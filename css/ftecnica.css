@@ -1,0 +1,135 @@
+.logo a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.8rem;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.logo a:hover {
+    opacity: 0.8;
+}
+
+
+/* ================= BANNER ================= */
+
+.page-banner {
+    background: linear-gradient(135deg, #5B6EF5 0%, #8B5CF6 100%);
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.page-banner h2 {
+    font-size: 2.4rem;
+    margin-bottom: 10px;
+}
+
+.page-banner p {
+    color: #e2e8f0;
+    font-size: 1rem;
+}
+
+/* ================= CONTENEDOR ================= */
+
+.page-container {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+/* ================= TARJETAS ================= */
+
+.tech-card {
+    background: white;
+    padding: 40px;
+    border-radius: 18px;
+    margin-bottom: 50px;
+    box-shadow: 0 20px 40px rgba(31, 41, 55, 0.08);
+    transition: 0.3s ease;
+}
+
+.tech-card:hover {
+    transform: translateY(-6px);
+}
+
+.tech-card h3 {
+    margin-bottom: 25px;
+    color: #1d4089; /* Tu azul principal */
+    font-size: 1.5rem;
+}
+
+/* ================= TABLAS MODERNAS ================= */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+th {
+    background: #1F2937; /* Igual que el header */
+    color: white;
+    padding: 14px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 0.92rem;
+}
+
+tr:hover {
+    background: #f4f6f9; /* Tu fondo general */
+}
+
+/* ================= PRIORIDADES ================= */
+
+.status-alta {
+    background: rgba(239, 68, 68, 0.15);
+    color: #b91c1c;
+    font-weight: 600;
+    padding: 6px 10px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.status-media {
+    background: rgba(245, 158, 11, 0.15);
+    color: #b45309;
+    font-weight: 600;
+    padding: 6px 10px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.status-baja {
+    background: rgba(34, 197, 94, 0.15);
+    color: #15803d;
+    font-weight: 600;
+    padding: 6px 10px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+    .tech-card {
+        padding: 20px;
+    }
+
+    table {
+        font-size: 0.8rem;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+}

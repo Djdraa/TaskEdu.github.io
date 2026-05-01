@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Propuesta - TaskEdu</title>
+
+  <!-- GLOBAL -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/contexto.css">
+
+  <!-- ESPECÍFICO -->
+  <link rel="stylesheet" href="css/propuesta.css">
+</head>
+
+<body>
+
+<!-- HEADER GLOBAL -->
+<header class="landing-header">
+
+    <div class="logo">
+        <a href="index.html">🎓 TaskEdu</a>
+    </div>
+
+    <nav class="landing-nav">
+        <a href="contexto.html">Contexto</a>
+        <a href="ftecnica.html">Ficha Técnica</a>
+        <a href="proveedores.html">Proveedores</a>
+        <a href="modelo.html">Modelo</a>
+        <a href="propuesta.html" class="active">Propuesta</a>
+        <a href="sobre.html">Sobre Nosotros</a>
+    </nav>
+
+    <div class="auth-buttons">
+        <button onclick="mostrarLogin()">Iniciar Sesión</button>
+        <button class="btn-primary" onclick="mostrarRegistro()">Registrarse</button>
+    </div>
+
+</header>
+
+<!-- BANNER -->
+<section class="page-banner">
+    <h2>💼 Propuesta Técnica y Económica</h2>
+</section>
+
+<!-- CONTENIDO -->
+<main class="page-container">
+
+    <section class="card">
+        <h3>1. Alcance de la Solución</h3>
+        <p>
+        La aplicación TaskEdu permitirá a los estudiantes organizar sus tareas académicas de manera eficiente mediante funcionalidades como:
+        </p>
+
+        <ul>
+            <li>Registro y clasificación de tareas por prioridad.</li>
+            <li>Recordatorios y sugerencias de horarios.</li>
+            <li>Notificaciones de fechas límite.</li>
+            <li>Trabajo colaborativo entre estudiantes.</li>
+            <li>Autenticación de usuarios.</li>
+            <li>Visualización en calendario y lista.</li>
+            <li>Compatibilidad móvil.</li>
+        </ul>
+    </section>
+
+    <section class="card">
+        <h3>2. Costos Estimados</h3>
+
+        <div class="table-container">
+            <table>
+                <tr>
+                    <th>Item</th>
+                    <th>Costo</th>
+                </tr>
+                <tr>
+                    <td>Hardware</td>
+                    <td>$3.500.000 COP</td>
+                </tr>
+                <tr>
+                    <td>Software</td>
+                    <td>$0</td>
+                </tr>
+                <tr>
+                    <td>Hosting</td>
+                    <td>$800.000</td>
+                </tr>
+                <tr>
+                    <td>Mano de obra</td>
+                    <td>$4.200.000</td>
+                </tr>
+                <tr>
+                    <td>Capacitación</td>
+                    <td>$400.000</td>
+                </tr>
+                <tr>
+                    <th>Total</th>
+                    <th>$8.900.000 COP</th>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <section class="card">
+        <h3>3. Cronograma</h3>
+
+        <div class="table-container">
+            <table>
+                <tr>
+                    <th>Fase</th>
+                    <th>Duración</th>
+                    <th>Fechas</th>
+                </tr>
+                <tr>
+                    <td>Requisitos</td>
+                    <td>1 semana</td>
+                    <td>Abril</td>
+                </tr>
+                <tr>
+                    <td>Diseño</td>
+                    <td>2 semanas</td>
+                    <td>Mayo</td>
+                </tr>
+                <tr>
+                    <td>Desarrollo</td>
+                    <td>4 semanas</td>
+                    <td>Mayo - Junio</td>
+                </tr>
+                <tr>
+                    <td>Pruebas</td>
+                    <td>2 semanas</td>
+                    <td>Junio</td>
+                </tr>
+                <tr>
+                    <td>Entrega</td>
+                    <td>1 semana</td>
+                    <td>Julio</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <section class="card">
+        <h3>4. Términos y Condiciones</h3>
+        <ul>
+            <li>El desarrollo se realizará según el cronograma.</li>
+            <li>Cambios mayores requieren evaluación.</li>
+            <li>Uso educativo del sistema.</li>
+            <li>Entrega con documentación.</li>
+            <li>Compatibilidad con navegadores modernos.</li>
+        </ul>
+    </section>
+
+</main>
+
+<footer>
+    <p>© 2026 TaskEdu</p>
+</footer>
+
+<!-- MODAL GLOBAL -->
+<div id="modalOverlay" class="modal-overlay">
+    <div class="modal-content">
+        <span class="close-btn" onclick="cerrarModal()">×</span>
+        <iframe id="modalFrame"></iframe>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo - TaskEdu</title>
+
+    <!-- GLOBAL -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/contexto.css">
+
+    <!-- ESPECÍFICO -->
+    <link rel="stylesheet" href="css/modelo.css">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="landing-header">
+
+    <div class="logo">
+        <a href="index.html">🎓 TaskEdu</a>
+    </div>
+
+    <nav class="landing-nav">
+        <a href="contexto.html">Contexto</a>
+        <a href="ftecnica.html">Ficha Técnica</a>
+        <a href="proveedores.html">Proveedores</a>
+        <a href="modelo.html" class="active">Modelo</a>
+        <a href="propuesta.html">Propuesta</a>
+        <a href="sobre.html">Sobre Nosotros</a>
+    </nav>
+
+    <div class="auth-buttons">
+        <button onclick="mostrarLogin()">Iniciar Sesión</button>
+        <button class="btn-primary" onclick="mostrarRegistro()">Registrarse</button>
+    </div>
+
+</header>
+
+<!-- ================= BANNER ================= -->
+<section class="page-banner">
+    <h2>📐 Modelo del Sistema</h2>
+    <p>Arquitectura, diagramas y estructura funcional de TaskEdu</p>
+</section>
+
+<!-- ================= CONTENIDO ================= -->
+<main class="page-container">
+
+    <section class="card">
+        <h3>Modelo Conceptual</h3>
+
+        <div class="img-container">
+            <p class="diagram-label">Diagrama ER</p>
+            <img src="img/ER.jpeg" class="img-modelo img-large" onclick="openViewer(this)">
+        </div>
+
+        <div class="img-container">
+            <p class="diagram-label">Diagrama Relacional</p>
+            <img src="img/Log_relacional.png" class="img-modelo img-large" onclick="openViewer(this)">
+        </div>
+    </section>
+
+    <section class="card">
+        <h3>Diagramas de Dominio</h3>
+
+        <div class="diagram-grid">
+            <div>
+                <p class="diagram-label">Registro</p>
+                <img src="img/dominio1.png" class="img-modelo img-medium" onclick="openViewer(this)">
+            </div>
+
+            <div>
+                <p class="diagram-label">Tareas</p>
+                <img src="img/dominio2.png" class="img-modelo img-medium" onclick="openViewer(this)">
+            </div>
+        </div>
+    </section>
+
+    <section class="card">
+        <h3>Diagramas de Actividades</h3>
+
+        <div class="diagram-grid">
+            <div>
+                <p class="diagram-label">Registro</p>
+                <img src="img/actividad1.png" class="img-modelo img-medium" onclick="openViewer(this)">
+            </div>
+
+            <div>
+                <p class="diagram-label">Notificaciones</p>
+                <img src="img/actividad3.png" class="img-modelo img-medium" onclick="openViewer(this)">
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- ================= MODAL GLOBAL (TUYO) ================= -->
+<div id="modalOverlay" class="modal-overlay">
+    <div class="modal-content">
+        <span class="close-btn" onclick="cerrarModal()">×</span>
+        <iframe id="modalFrame"></iframe>
+    </div>
+</div>
+
+<!-- ================= VISOR DE IMÁGENES ================= -->
+<div id="viewer" class="viewer" onclick="closeViewer()">
+    <img id="viewerImg">
+</div>
+
+<script src="script.js"></script>
+
+<!-- SOLO PARA IMÁGENES -->
+<script>
+function openViewer(img) {
+    const viewer = document.getElementById("viewer");
+    const viewerImg = document.getElementById("viewerImg");
+
+    viewer.style.display = "flex";
+    viewerImg.src = img.src;
+}
+
+function closeViewer() {
+    document.getElementById("viewer").style.display = "none";
+}
+</script>
+
+</body>
+</html>

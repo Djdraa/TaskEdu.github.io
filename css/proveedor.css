@@ -1,0 +1,274 @@
+.logo a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.8rem;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.logo a:hover {
+    opacity: 0.8;
+}
+/* ================= RESET BÁSICO ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ================= BANNER ================= */
+
+.page-banner {
+    background: linear-gradient(135deg, #5B6EF5 0%, #8B5CF6 100%);
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.page-banner h2 {
+    font-size: 2.4rem;
+    margin-bottom: 10px;
+}
+
+.page-banner p {
+    color: #e2e8f0;
+}
+
+/* ================= CONTENEDOR ================= */
+
+.page-container {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+/* ================= TARJETAS ================= */
+
+.tech-card {
+    background: white;
+    padding: 40px;
+    border-radius: 18px;
+    margin-bottom: 50px;
+    box-shadow: 0 20px 40px rgba(31, 41, 55, 0.08);
+    transition: 0.3s ease;
+}
+
+.tech-card:hover {
+    transform: translateY(-6px);
+}
+
+.tech-card h3 {
+    margin-bottom: 25px;
+    color: #1d4089;
+}
+
+/* ================= TABLAS ================= */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+th {
+    background: #1F2937;
+    color: white;
+    padding: 14px;
+    text-align: left;
+    font-weight: 500;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 0.92rem;
+}
+
+tr:hover {
+    background: #f4f6f9;
+}
+
+/* ================= FILA SELECCIONADA ================= */
+
+.selected-row {
+    background: rgba(91, 110, 245, 0.08);
+}
+
+.badge {
+    background: linear-gradient(135deg, #5B6EF5, #8B5CF6);
+    color: white;
+    font-size: 0.7rem;
+    padding: 4px 8px;
+    border-radius: 6px;
+    margin-left: 8px;
+}
+
+/* ================= IMAGEN ================= */
+
+.grafico-container {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.grafico-comparativo {
+    max-width: 100%;
+    border-radius: 18px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    transition: 0.3s ease;
+}
+
+.grafico-comparativo:hover {
+    transform: scale(1.03);
+}
+
+/* ================= LISTAS ================= */
+
+.stack-list {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.stack-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+/* ================= CRONOGRAMA MODERNO ================= */
+
+.cronograma-vertical {
+    margin-top: 30px;
+}
+
+.fase-item {
+    background: #f4f6f9;
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fase-item .duracion {
+    background: linear-gradient(135deg, #5B6EF5, #8B5CF6);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+/* ================= BOTONES HEADER ================= */
+
+.auth-buttons button {
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.btn-login {
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+}
+
+.btn-login:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #5B6EF5, #8B5CF6);
+    color: white;
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+}
+
+/* ================= MODAL ================= */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modal-box {
+    background: white;
+    width: 400px;
+    padding: 40px;
+    border-radius: 18px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    position: relative;
+    animation: fadeIn 0.3s ease;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #6b7280;
+}
+
+.auth-form {
+    display: none;
+    flex-direction: column;
+}
+
+.auth-form h2 {
+    margin-bottom: 20px;
+    color: #1d4089;
+}
+
+.auth-form input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+}
+
+.auth-form button {
+    margin-top: 10px;
+}
+
+/* ================= ANIMACIÓN ================= */
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+    .tech-card {
+        padding: 20px;
+    }
+
+    .fase-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    table {
+        font-size: 0.8rem;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+}

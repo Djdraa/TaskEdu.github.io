@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre Nosotros - TaskEdu</title>
+
+  <!-- GLOBAL -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/contexto.css">
+
+  <!-- ESPECÍFICO -->
+  <link rel="stylesheet" href="css/sobre.css">
+</head>
+
+<body>
+
+<!-- ================= HEADER GLOBAL ================= -->
+<header class="landing-header">
+
+    <div class="logo">
+        <a href="index.html">🎓 TaskEdu</a>
+    </div>
+
+    <nav class="landing-nav">
+        <a href="contexto.html">Contexto</a>
+        <a href="ftecnica.html">Ficha Técnica</a>
+        <a href="proveedores.html">Proveedores</a>
+        <a href="modelo.html">Modelo</a>
+        <a href="propuesta.html">Propuesta</a>
+        <a href="sobre.html" class="active">Sobre Nosotros</a>
+    </nav>
+
+    <div class="auth-buttons">
+        <button onclick="mostrarLogin()">Iniciar Sesión</button>
+        <button class="btn-primary" onclick="mostrarRegistro()">Registrarse</button>
+    </div>
+
+</header>
+
+<!-- ================= BANNER ================= -->
+<section class="page-banner">
+    <h2>👨‍💻 Sobre Nosotros</h2>
+</section>
+
+<!-- ================= CONTENIDO ================= -->
+<main class="page-container">
+
+    <!-- PERFIL -->
+    <section class="card profile-card">
+        <div class="profile">
+
+            <img src="img/ricardo foto.jpg" alt="Foto de Ricardo">
+
+            <div class="text">
+                <h2>Deivy Ricardo Alegría Agudelo</h2>
+
+                <p>Estudiante de Ingeniería de Sistemas y aprendiz en Análisis y Desarrollo de Software (SENA).</p>
+
+                <p>
+                Me enfoco en el desarrollo de soluciones digitales modernas, especialmente en el área web, móvil y aplicaciones interactivas. 
+                Disfruto crear herramientas que no solo funcionen bien, sino que realmente ayuden a las personas a organizarse, aprender y ser más productivas.
+                </p>
+
+                <p><em>"La tecnología no es solo código, es una forma de resolver problemas reales."</em></p>
+
+                <p class="skills">
+                    💻 Desarrollo Web · 📱 Aplicaciones Móviles · ⚡ Apps Interactivas
+                </p>
+
+                <!-- HABILIDADES -->
+                <div class="skills-box">
+                    <h4>🚀 Habilidades</h4>
+                    <ul>
+                        <li>Desarrollo Frontend (HTML, CSS, JavaScript)</li>
+                        <li>Creación de interfaces modernas y responsivas</li>
+                        <li>Desarrollo de aplicaciones web interactivas</li>
+                        <li>Fundamentos de desarrollo móvil</li>
+                        <li>Lógica de programación y estructuración de sistemas</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- QUÉ ES -->
+    <section class="card">
+        <h3>📚 ¿Qué es TaskEdu?</h3>
+        <p>
+        TaskEdu es una aplicación web diseñada para ayudar a los estudiantes a organizar sus tareas académicas de forma eficiente, 
+        centralizando toda la información en un solo lugar y facilitando la planificación, el seguimiento y el cumplimiento de sus responsabilidades.
+        </p>
+    </section>
+
+    <!-- FUNCIONES -->
+    <section class="card">
+        <h3>🚀 Lo que puedes hacer</h3>
+        <ul class="check-list">
+            <li>Crear y organizar tareas por asignatura</li>
+            <li>Definir fechas límite y prioridades</li>
+            <li>Visualizar el progreso académico</li>
+            <li>Recibir recordatorios inteligentes</li>
+            <li>Gestionar múltiples materias</li>
+        </ul>
+    </section>
+
+    <!-- CARACTERÍSTICAS -->
+    <section class="card">
+        <h3>✨ Características Principales</h3>
+
+        <div class="features-grid">
+
+            <div class="feature">
+                <h4>📋 Gestión de Tareas</h4>
+                <p>Organiza tareas por prioridad, estado y fechas.</p>
+            </div>
+
+            <div class="feature">
+                <h4>📅 Calendario</h4>
+                <p>Visualiza actividades en formato calendario.</p>
+            </div>
+
+            <div class="feature">
+                <h4>📚 Materias</h4>
+                <p>Clasificación por asignaturas.</p>
+            </div>
+
+            <div class="feature">
+                <h4>📊 Estadísticas</h4>
+                <p>Seguimiento del rendimiento académico.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- TÉRMINOS -->
+    <section class="card">
+        <h3>📄 Términos y Condiciones</h3>
+        <ul>
+            <li>Privacidad de datos garantizada.</li>
+            <li>Uso responsable del sistema.</li>
+            <li>Uso exclusivamente educativo.</li>
+            <li>Actualizaciones periódicas del sistema.</li>
+        </ul>
+    </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+    <p>© 2026 TaskEdu</p>
+</footer>
+
+<!-- ================= MODAL ================= -->
+<div id="modalOverlay" class="modal-overlay">
+    <div class="modal-content">
+        <span class="close-btn" onclick="cerrarModal()">×</span>
+        <iframe id="modalFrame"></iframe>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

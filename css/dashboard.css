@@ -1,0 +1,313 @@
+:root {
+    --primary: #5B6EF5;
+    --secondary: #8B5CF6;
+    --dark: #1F2937;
+    --bg: linear-gradient(135deg, #5B6EF5, #8B5CF6);
+    --white: #ffffff;
+    --gray-light: #f3f4f6;
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+}
+
+body { 
+    background: var(--bg); 
+    min-height: 100vh; 
+    display: flex; 
+}
+
+/* SIDEBAR PROFESIONAL */
+.sidebar { 
+    width: 260px; 
+    background: var(--dark); 
+    color: white; 
+    display: flex; 
+    flex-direction: column; 
+    padding: 25px; 
+    position: fixed; 
+    height: 100vh; 
+}
+
+.sidebar h2 { 
+    font-size: 24px; 
+    margin-bottom: 40px; 
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+}
+
+.sidebar nav { 
+    flex: 1; 
+}
+
+.sidebar a { 
+    color: #9ca3af; 
+    text-decoration: none; 
+    padding: 12px 15px; 
+    border-radius: 8px; 
+    margin-bottom: 10px; 
+    display: block; 
+    transition: all 0.3s; 
+    font-weight: 500;
+}
+
+.sidebar a.active, 
+.sidebar a:hover { 
+    background: #374151; 
+    color: white; 
+    transform: translateX(5px); 
+}
+
+.btn-logout { 
+    background: #ef4444; 
+    border: none; 
+    color: white; 
+    padding: 12px; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    font-weight: bold; 
+    margin-top: auto; 
+}
+
+/* CONTENIDO PRINCIPAL */
+.main-content { 
+    margin-left: 260px; 
+    flex: 1; 
+    padding: 40px; 
+    width: calc(100% - 260px); 
+}
+
+/* TOPBAR MEJORADA */
+.topbar { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    color: white; 
+    margin-bottom: 35px; 
+}
+
+.topbar h1 { 
+    font-size: 28px; 
+    font-weight: 700; 
+}
+
+.top-actions { 
+    display: flex; 
+    align-items: center; 
+    gap: 25px; 
+}
+
+/* CAMPANA Y NOTIFICACIONES */
+.noti-wrapper { 
+    position: relative; 
+}
+
+.noti-icon { 
+    font-size: 30px; 
+    cursor: pointer; 
+    position: relative; 
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2)); 
+}
+
+.noti-badge { 
+    position: absolute; 
+    top: -2px; 
+    right: -2px; 
+    background: #ef4444; 
+    color: white; 
+    font-size: 11px; 
+    padding: 2px 6px; 
+    border-radius: 50%; 
+    font-weight: bold; 
+    border: 2px solid var(--primary);
+}
+
+.noti-panel { 
+    position: absolute; 
+    right: 0; 
+    top: 50px; 
+    background: white; 
+    width: 320px; 
+    border-radius: 12px; 
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3); 
+    display: none; 
+    z-index: 1000; 
+    overflow: hidden;
+}
+
+.noti-header { 
+    padding: 15px; 
+    background: var(--gray-light); 
+    border-bottom: 1px solid #ddd; 
+    color: #333; 
+    font-weight: bold; 
+}
+
+.noti-list { 
+    max-height: 350px; 
+    overflow-y: auto; 
+}
+
+.noti-item { 
+    padding: 15px; 
+    border-bottom: 1px solid #eee; 
+    display: flex; 
+    align-items: center; 
+    gap: 12px; 
+    transition: 0.2s; 
+}
+
+.noti-item:hover { 
+    background: #f9fafb; 
+}
+
+.status-dot { 
+    width: 12px; 
+    height: 12px; 
+    border-radius: 50%; 
+}
+
+.noti-item strong {
+    color: #111; /* negro fuerte */
+}
+
+.noti-item small {
+    color: #444; /* gris oscuro */
+}
+/* BOTONES */
+.btn-add { 
+    background: var(--dark); 
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    font-weight: 600; 
+    transition: 0.3s; 
+}
+
+.btn-add:hover { 
+    background: #000; 
+    transform: translateY(-2px); 
+}
+
+/* TARJETAS DE TAREA */
+.task-container { 
+    max-width: 850px; 
+    margin: 0 auto; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 20px; 
+}
+
+.task-card { 
+    background: white; 
+    border-radius: 15px; 
+    padding: 25px; 
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
+    transition: 0.3s;
+}
+
+.task-card:hover { 
+    transform: translateY(-5px); 
+}
+
+.task-header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: flex-start; 
+    margin-bottom: 15px; 
+}
+
+.priority-badge { 
+    padding: 5px 12px; 
+    border-radius: 6px; 
+    font-size: 12px; 
+    font-weight: 800; 
+    text-transform: uppercase; 
+}
+
+.Alta { 
+    background: #fee2e2; 
+    color: #ef4444; 
+}
+
+.Media { 
+    background: #fef3c7; 
+    color: #f59e0b; 
+}
+
+.Baja { 
+    background: #dcfce7; 
+    color: #10b981; 
+}
+
+.task-card h3 { 
+    font-size: 22px; 
+    color: #1f2937; 
+    margin-bottom: 10px; 
+}
+
+.task-card p { 
+    color: #6b7280; 
+    font-size: 16px; 
+    margin-bottom: 15px; 
+    line-height: 1.6; 
+}
+
+.task-footer { 
+    font-size: 14px; 
+    color: #9ca3af; 
+    display: flex; 
+    align-items: center; 
+    gap: 8px; 
+}
+
+/* MODAL */
+.modal { 
+    position: fixed; 
+    inset: 0; 
+    background: rgba(0,0,0,0.6); 
+    display: none; 
+    align-items: center; 
+    justify-content: center; 
+    z-index: 2000; 
+    backdrop-filter: blur(4px); 
+}
+
+.modal.active { 
+    display: flex; 
+}
+
+.modal-box { 
+    background: white; 
+    padding: 35px; 
+    border-radius: 20px; 
+    width: 100%; 
+    max-width: 500px; 
+}
+
+.modal-box input, 
+.modal-box textarea, 
+.modal-box select { 
+    width: 100%; 
+    padding: 12px; 
+    margin-top: 15px; 
+    border: 1px solid #d1d5db; 
+    border-radius: 10px; 
+    font-size: 16px;
+}
+
+/* VISTAS */
+.view-section { 
+    display: none; 
+}
+
+.view-section.active { 
+    display: block; 
+}

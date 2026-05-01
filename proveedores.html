@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proveedores - TaskEdu</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/proveedor.css">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="landing-header">
+    <div class="logo">
+        <a href="index.html">🎓 TaskEdu</a>
+    </div>
+
+    <nav class="landing-nav">
+        <a href="contexto.html">Contexto</a>
+        <a href="ftecnica.html">Ficha Técnica</a>
+        <a href="proveedores.html" class="active">Proveedores</a>
+        <a href="modelo.html">Modelo</a>
+        <a href="propuesta.html">Propuesta</a>
+        <a href="sobre.html">Sobre Nosotros</a>
+    </nav>
+
+    <!-- BOTONES CON MODAL -->
+    <div class="auth-buttons">
+        <button class="btn-login" onclick="abrirModal('login')">Iniciar Sesión</button>
+        <button class="btn-primary" onclick="abrirModal('registro')">Registrarse</button>
+    </div>
+</header>
+
+<!-- ================= BANNER ================= -->
+<section class="page-banner">
+    <h2>💼 Análisis de Proveedores</h2>
+    <p>Evaluación técnica y económica para la implementación del proyecto</p>
+</section>
+
+<main class="page-container">
+
+<!-- ================= COMPARATIVO ================= -->
+<section class="tech-card">
+    <h3>Comparativo de Proveedores</h3>
+
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Proveedor</th>
+                    <th>Infraestructura</th>
+                    <th>Software</th>
+                    <th>Costo Total (COP)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Modelo Tradicional Empresarial</td>
+                    <td>Servidor físico dedicado</td>
+                    <td>Windows Server, SQL Server</td>
+                    <td>$7.000.000 – $9.000.000</td>
+                </tr>
+
+                <tr class="selected-row">
+                    <td>
+                        Modelo Académico Open Source
+                        <span class="badge">SELECCIONADO</span>
+                    </td>
+                    <td>Equipo personal / Hosting en la nube</td>
+                    <td>Node.js, Express, MongoDB</td>
+                    <td><strong>$0 – $360.000</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- IMAGEN MEJORADA -->
+    <div class="grafico-container">
+        <img src="img/gcomparativo.png" 
+             alt="Gráfico comparativo de costos"
+             class="grafico-comparativo">
+    </div>
+</section>
+
+<!-- ================= CONCLUSIÓN ================= -->
+<section class="tech-card">
+    <h3>Conclusión del Análisis</h3>
+
+    <p>
+        Tras el análisis comparativo entre un modelo tradicional con infraestructura física
+        y el modelo académico basado en tecnologías de código abierto,
+        se concluye que el <strong>Modelo Académico Open Source</strong> es la opción más adecuada.
+    </p>
+
+    <p>
+        Este enfoque elimina la necesidad de adquirir servidores físicos y pagar
+        licencias comerciales, reduciendo significativamente los costos iniciales.
+        Además, permite una arquitectura moderna basada en Node.js, Express y MongoDB,
+        garantizando flexibilidad, escalabilidad y facilidad de mantenimiento.
+    </p>
+</section>
+
+<!-- ================= STACK ================= -->
+<section class="tech-card">
+    <h3>Stack Tecnológico Seleccionado</h3>
+
+    <ul class="stack-list">
+        <li><strong>Lenguaje:</strong> JavaScript</li>
+        <li><strong>Frontend:</strong> HTML5, CSS3, JavaScript</li>
+        <li><strong>Backend:</strong> Node.js, Express.js</li>
+        <li><strong>Base de datos:</strong> MongoDB</li>
+        <li><strong>Sistema de ejecución:</strong> Entorno local / Hosting en la nube</li>
+        <li><strong>Editor:</strong> Visual Studio Code</li>
+        <li><strong>Control de versiones:</strong> Git y GitHub</li>
+        <li><strong>Autenticación:</strong> JSON Web Tokens (JWT)</li>
+    </ul>
+</section>
+
+<!-- ================= PROPUESTA ================= -->
+<section class="tech-card">
+    <h3>Propuesta Técnica y Económica Final</h3>
+
+    <h4>Costos Estimados</h4>
+    <ul>
+        <li>Desarrollo académico: $0</li>
+        <li>Software Open Source: $0</li>
+        <li>Hosting (opcional): $300.000</li>
+        <li>Dominio (opcional): $60.000</li>
+        <li><strong>Total estimado: $0 – $360.000 COP</strong></li>
+    </ul>
+
+    <h4>Cronograma de Ejecución</h4>
+
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Fase</th>
+                    <th>Duración (semanas)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Análisis de requerimientos</td><td>1</td></tr>
+                <tr><td>Diseño de interfaz</td><td>2</td></tr>
+                <tr><td>Desarrollo backend</td><td>3</td></tr>
+                <tr><td>Desarrollo frontend</td><td>2</td></tr>
+                <tr><td>Integración y pruebas</td><td>2</td></tr>
+                <tr><td>Ajustes finales y documentación</td><td>1</td></tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- ================= TÉRMINOS ================= -->
+<section class="tech-card">
+    <h3>Términos y Condiciones</h3>
+
+    <ul>
+        <li>El desarrollo se ejecutará dentro del cronograma académico establecido.</li>
+        <li>Cualquier modificación deberá ser documentada y evaluada.</li>
+        <li>Uso exclusivamente académico.</li>
+        <li>Tecnologías de código abierto sin costos de licenciamiento.</li>
+        <li>Se entregará documentación técnica y manual básico.</li>
+        <li>La propiedad intelectual corresponderá al equipo desarrollador.</li>
+    </ul>
+</section>
+
+</main>
+
+<!-- ================= MODAL AUTENTICACIÓN ================= -->
+<div id="authModal" class="modal-overlay">
+    <div class="modal-box">
+        <span class="close-btn" onclick="cerrarModal()">×</span>
+
+        <div id="loginForm" class="auth-form">
+            <h2>Iniciar Sesión</h2>
+            <input type="email" placeholder="Correo electrónico">
+            <input type="password" placeholder="Contraseña">
+            <button class="btn-primary">Entrar</button>
+        </div>
+
+        <div id="registroForm" class="auth-form">
+            <h2>Crear Cuenta</h2>
+            <input type="text" placeholder="Nombre completo">
+            <input type="email" placeholder="Correo electrónico">
+            <input type="password" placeholder="Contraseña">
+            <button class="btn-primary">Registrarme</button>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

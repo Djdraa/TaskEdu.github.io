@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>TaskEdu - Gestión Académica</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="landing-header">
+    <div class="logo">
+        <h1>🎓 TaskEdu</h1>
+    </div>
+
+    <nav class="landing-nav">
+        <a href="contexto.html">Contexto</a>
+        <a href="ftecnica.html">Ficha Técnica</a>
+        <a href="proveedores.html">Proveedores</a>
+        <a href="modelo.html">Modelo</a>
+        <a href="propuesta.html">Propuesta</a>
+        <a href="sobre.html">Sobre Nosotros</a>
+        <a href="dashboard.html">Dashboard</a>
+    </nav>
+
+    <div class="auth-buttons">
+        <button onclick="mostrarLogin()">Iniciar Sesión</button>
+        <button class="btn-primary" onclick="mostrarRegistro()">Registrarse</button>
+    </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+    <div class="hero-text">
+        <h2 class="animated-title">
+            Organiza tus tareas académicas de manera inteligente para que puedas
+        </h2>
+
+        <p class="animated-subtitle">
+            Gestionar proyectos, tareas, notificaciones y seguimiento académico en un solo lugar.
+        </p>
+
+        <button class="btn-primary hero-btn" onclick="mostrarRegistro()">
+            Comenzar Ahora
+        </button>
+    </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+    <p>© 2026 TaskAcademy. Todos los derechos reservados.</p>
+</footer>
+
+<!-- ================= MODAL ================= -->
+<div id="modalOverlay" class="modal-overlay">
+    <div class="modal-content">
+        <span class="close-btn" onclick="cerrarModal()">×</span>
+        <iframe id="modalFrame"></iframe>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

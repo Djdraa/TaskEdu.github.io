@@ -1,0 +1,258 @@
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden; /* 🔥 Elimina scroll horizontal */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f6f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ================= HEADER ================= */
+.landing-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 8%;
+    background: #1F2937;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+}
+
+.landing-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.landing-nav a {
+    text-decoration: none;
+    color: #e2e8f0;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.landing-nav a:hover {
+    color: #b297e0;
+}
+
+/* ================= BOTONES ================= */
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    padding: 8px 14px;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+    background: #1d4089;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #b297e0;
+}
+
+/* ================= HERO ================= */
+.hero {
+    min-height: calc(100vh - 70px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;            
+    padding: 0 10%;
+    background: linear-gradient(135deg, #5B6EF5 0%, #8B5CF6 100%);
+    color: white;
+    width: 100%;
+}
+
+.hero-text {
+    max-width: 750px;
+}
+
+/* ================= TITULO EFECTO ESCRITURA ================= */
+.animated-title {
+    font-size: 2.3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+
+    background: linear-gradient(90deg, #ffffff, #c4b5fd, #ffffff);
+    background-size: 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    display: inline-block; /* 🔥 evita overflow */
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid rgba(255,255,255,0.8);
+
+    animation: typing 3s steps(45) forwards,
+               blink 0.8s infinite,
+               gradientMove 4s linear infinite;
+}
+
+/* Animación usando max-width en vez de width */
+@keyframes typing {
+    from { max-width: 0; }
+    to { max-width: 100%; }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0%; }
+    100% { background-position: 200%; }
+}
+
+/* ================= SUBTITULO ================= */
+.animated-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    color: #e2e8f0;
+    opacity: 0;
+    animation: fadeIn 1.5s ease forwards;
+    animation-delay: 3s;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* ================= BOTON HERO ================= */
+.hero-btn {
+    opacity: 0;
+    animation: fadeIn 1.5s ease forwards;
+    animation-delay: 3.5s;
+}
+
+/* ================= FOOTER ================= */
+footer {
+    background: #1e293b;
+    color: #cbd5e1;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+}
+
+/* ================= MODAL ================= */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s ease;
+    z-index: 2000;
+}
+
+.modal-overlay.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-content {
+    background: #ffffff;
+    width: 90%;
+    max-width: 520px;
+    height: 95vh;   /* 🔥 ESTA ES LA CLAVE */
+    border-radius: 14px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+}
+
+.modal-content iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.close-btn {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 26px;
+    cursor: pointer;
+    color: #64748b;
+    z-index: 10;
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    color: #b297e0;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 992px) {
+    .landing-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .landing-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .animated-title {
+        font-size: 1.8rem;
+        white-space: normal;
+        border-right: none;
+        animation: gradientMove 4s linear infinite;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .landing-header {
+        padding: 15px 5%;
+    }
+
+    .landing-nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .auth-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 60px 20px;
+    }
+}
