@@ -79,12 +79,12 @@ button:hover {
 
 /* ================= HERO ================= */
 .hero {
-    min-height: calc(100vh - 70px);
+    min-height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;            
-    padding: 0 10%;
+    text-align: center;
+    padding: 80px 10%;
     background: linear-gradient(135deg, #5B6EF5 0%, #8B5CF6 100%);
     color: white;
     width: 100%;
@@ -96,7 +96,7 @@ button:hover {
 
 /* ================= TITULO EFECTO ESCRITURA ================= */
 .animated-title {
-    font-size: 2.3rem;
+    font-size: 3.2rem;
     font-weight: 700;
     margin-bottom: 20px;
 
@@ -134,8 +134,8 @@ button:hover {
 
 /* ================= SUBTITULO ================= */
 .animated-subtitle {
-    font-size: 1.1rem;
-    margin-bottom: 25px;
+    font-size: 1.4rem;
+    margin-bottom: 30px;
     color: #e2e8f0;
     opacity: 0;
     animation: fadeIn 1.5s ease forwards;
@@ -148,6 +148,8 @@ button:hover {
 
 /* ================= BOTON HERO ================= */
 .hero-btn {
+    padding: 12px 28px;
+    font-size: 1.05rem;
     opacity: 0;
     animation: fadeIn 1.5s ease forwards;
     animation-delay: 3.5s;
@@ -227,7 +229,7 @@ footer {
     }
 
     .animated-title {
-        font-size: 1.8rem;
+        font-size: 2.2rem;
         white-space: normal;
         border-right: none;
         animation: gradientMove 4s linear infinite;
@@ -253,6 +255,13 @@ footer {
 
     .hero {
         min-height: auto;
-        padding: 60px 20px;
+        padding: 60px 15px;
     }
-}
+
+    .animated-title {
+        font-size: 1.8rem;
+    }
+
+    .animated-subtitle {
+        font-size: 1.1rem;
+    }
