@@ -329,7 +329,7 @@ El frontend se sirve automáticamente desde GitHub Pages en la raíz del reposit
 
 **Repositorio**: https://github.com/Djdraa/TaskEdu.github.io
 
-**Autor**: Estudiante ADSO (Análisis y Desarrollo de Software)
+**Autor**: Ricardo Alegria (Análisis y Desarrollo de Software)
 
 **Instructor**: Mauro
 
