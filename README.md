@@ -183,9 +183,6 @@ TaskEdu.github.io/
 ├── css/                   # Estilos CSS
 ├── img/                   # Imágenes y diagramas
 ├── node_modules/          # Dependencias instaladas
-│
-├── Informe-de-software.md # Informe técnico del proyecto
-└── API-Informe.md         # Documentación de endpoints
 ```
 
 ## 🧪 Pruebas de la API
